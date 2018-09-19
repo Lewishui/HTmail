@@ -9,3 +9,14 @@ F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.exe
 F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.pdb
 F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\clsBuiness.dll
 F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\clsBuiness.pdb
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\HTmail.exe.config
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.exe
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.pdb
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\HTmail.exe
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\HTmail.pdb
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\clsBuiness.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\clsBuiness.pdb
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.csprojResolveAssemblyReference.cache
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmMain.resources
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.Properties.Resources.resources
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.csproj.GenerateResource.Cache

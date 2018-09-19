@@ -24,8 +24,16 @@ namespace HTmail
             //初始化信息
             clsAllnew BusinessHelp = new clsAllnew();
          
-           BusinessHelp. SendMail();
+         //BusinessHelp. SendMail();
+      //   BusinessHelp.CDOMessageSend();
 
+            
+          // BusinessHelp. SendMail2();   
+
+      //   BusinessHelp.SendMailUseGmail();
+
+  BusinessHelp.outllookSend();
+         
            MessageBox.Show("ok");
         }
     }
