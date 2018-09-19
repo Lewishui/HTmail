@@ -228,8 +228,6 @@ namespace clsBuiness
                     objMail.Configuration.Fields["http://schemas.microsoft.com/cdo/configuration/smtpusessl"].Value = true;
 
 
-
-
                     objMail.Configuration.Fields.Update();
                     objMail.Send();
                     return true;
