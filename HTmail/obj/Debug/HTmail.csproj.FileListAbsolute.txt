@@ -1,0 +1,11 @@
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe.config
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.csprojResolveAssemblyReference.cache
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmMain.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.Properties.Resources.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.csproj.GenerateResource.Cache
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.exe
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\clsBuiness.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\clsBuiness.pdb

@@ -1,0 +1,5 @@
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\clsBuiness.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\clsBuiness.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\obj\Debug\clsBuiness.csprojResolveAssemblyReference.cache
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\obj\Debug\clsBuiness.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\obj\Debug\clsBuiness.pdb
