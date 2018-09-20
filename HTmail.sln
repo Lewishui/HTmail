@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTmail", "HTmail\HTmail.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clsBuiness", "clsBuiness\clsBuiness.csproj", "{694C0384-F6CF-486C-B58B-AA06945E8245}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.DB", "HT.DB\HT.DB.csproj", "{543B6FEA-1892-4DAC-962C-4E0A42119DE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Common", "Order.Common\Order.Common.csproj", "{EB3B4387-9D4C-4A07-A558-971602541779}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{694C0384-F6CF-486C-B58B-AA06945E8245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{694C0384-F6CF-486C-B58B-AA06945E8245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{694C0384-F6CF-486C-B58B-AA06945E8245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543B6FEA-1892-4DAC-962C-4E0A42119DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543B6FEA-1892-4DAC-962C-4E0A42119DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543B6FEA-1892-4DAC-962C-4E0A42119DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543B6FEA-1892-4DAC-962C-4E0A42119DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3B4387-9D4C-4A07-A558-971602541779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3B4387-9D4C-4A07-A558-971602541779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3B4387-9D4C-4A07-A558-971602541779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3B4387-9D4C-4A07-A558-971602541779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

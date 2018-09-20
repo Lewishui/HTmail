@@ -20,3 +20,15 @@ D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.csprojResolveAssembly
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmMain.resources
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.Properties.Resources.resources
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.csproj.GenerateResource.Cache
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\log4net.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\HT.DB.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\HT.DB.pdb
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Order.Common.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\MySql.Data.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\System.Data.SQLite.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Order.Common.pdb
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmMessageShow.resources
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Interop.SHDocVw.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Interop.CDO.dll
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Interop.ADODB.dll

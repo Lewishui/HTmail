@@ -11,3 +11,9 @@ D:\Dev Project\autosendmail\HTmail\clsBuiness\obj\Debug\clsBuiness.pdb
 D:\Dev Project\autosendmail\HTmail\clsBuiness\obj\Debug\Interop.ADODB.dll
 D:\Dev Project\autosendmail\HTmail\clsBuiness\obj\Debug\Interop.CDO.dll
 D:\Dev Project\autosendmail\HTmail\clsBuiness\obj\Debug\clsBuiness.csproj.ResolveComReference.cache
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\HT.DB.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\log4net.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\HT.DB.pdb
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Interop.SHDocVw.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Interop.ADODB.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Interop.CDO.dll

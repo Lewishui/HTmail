@@ -1,17 +1,68 @@
-﻿using System;
+﻿using HT.DB;
+using ISR_System;
+using mshtml;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
+using System.Web;
+using System.Windows.Forms;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
 
 namespace clsBuiness
 {
+
+    public enum ProcessStatus
+    {
+        初始化,
+        登录界面,
+        确认YES,
+        第一页面,
+        第二页面,
+        Filter下拉,
+        关闭页面,
+        结束页面
+
+    }
+    public enum EapprovalProcessStatus
+    {
+        初始化,
+        Current_Task,
+        Task_Queue,
+        Search,
+        Process
+    }
     public class clsAllnew
     {
+        private BackgroundWorker bgWorker1;
+        //private object missing = System.Reflection.Missing.Value;
+        public ToolStripProgressBar pbStatus { get; set; }
+        public ToolStripStatusLabel tsStatusLabel1 { get; set; }
+        public log4net.ILog ProcessLogger { get; set; }
+        public log4net.ILog ExceptionLogger { get; set; }
+
+        private ProcessStatus isrun = ProcessStatus.初始化;
+        private EapprovalProcessStatus isrun1 = EapprovalProcessStatus.初始化;
+        private bool isOneFinished = false;
+        private Form viewForm;
+        private WbBlockNewUrl MyWebBrower;
+        System.Timers.Timer aTimer = new System.Timers.Timer(100);//实例化Timer类，设置间隔时间为10000毫秒； 
+        System.Timers.Timer t = new System.Timers.Timer(1000);//实例化Timer类，设置间隔时间为10000毫秒； 
+        private DateTime StopTime;
+        private DateTime MainStopTime;
+        WbBlockNewUrl myDoc = null;
+        private int login;
+        string caizhong;
+        string NOW_link;
+        int Typeidlink = 0;
+        bool loading;
+
+
         CookieContainer cookie = new CookieContainer();
 
         private string HttpPost(string Url, string postDataStr)
@@ -261,6 +312,284 @@ namespace clsBuiness
 
         }
 
+        private void InitialSystemInfo()
+        {
+            #region 初始化配置
+            ProcessLogger = log4net.LogManager.GetLogger("ProcessLogger");
+            ExceptionLogger = log4net.LogManager.GetLogger("SystemExceptionLogger");
+            ProcessLogger.Fatal("System Start " + DateTime.Now.ToString());
+            #endregion
+        }
 
+        public List<clsend_info> ReadWEBAquila()
+        {
+            //NOW_link = "";
+            caizhong = "";
+            login = 0;
+            try
+            {
+                tsStatusLabel1.Text = "玩命获取中....";
+                isOneFinished = false;
+                StopTime = DateTime.Now;
+                InitialWebbroswerIE2();
+                tsStatusLabel1.Text = "玩命获取中dd  ....";
+
+
+                int time = 0;
+                while (!isOneFinished)
+                {
+                    time++;
+                    //tsStatusLabel1.Text = caizhong + "刷新中  " + time.ToString() + "....";
+                    if (time > 200000)
+                        time = 0;
+
+                    System.Windows.Forms.Application.DoEvents();
+                    DateTime rq2 = DateTime.Now;  //结束时间
+                    int a = rq2.Second - StopTime.Second;
+                    TimeSpan ts = rq2 - StopTime;
+                    int timeTotal = ts.Minutes;
+
+                    if (timeTotal >= 1)
+                    {
+                        tsStatusLabel1.Text = "超出时间 正在退出....";
+                        ProcessLogger.Fatal("超出时间 89011" + DateTime.Now.ToString());
+                        //   isOneFinished = true;
+
+                        StopTime = DateTime.Now;
+                    }
+                }
+                tsStatusLabel1.Text = "关闭1  ....";
+
+                isOneFinished = false;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                ProcessLogger.Fatal("EX9092" + DateTime.Now.ToString() + ex);
+                return null;
+                throw;
+            }
+        }
+        public void InitialWebbroswerIE2()
+        {
+            try
+            {
+
+                MyWebBrower = new WbBlockNewUrl();
+                //不显示弹出错误继续运行框（HP方可）
+                MyWebBrower.ScriptErrorsSuppressed = true;
+                MyWebBrower.BeforeNewWindow += new EventHandler<WebBrowserExtendedNavigatingEventArgs>(MyWebBrower_BeforeNewWindow2);
+                MyWebBrower.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(AnalysisWebInfo2);
+                MyWebBrower.Dock = DockStyle.Fill;
+                MyWebBrower.IsWebBrowserContextMenuEnabled = true;
+                //显示用的窗体
+                viewForm = new Form();
+                //viewForm.Icon=
+                viewForm.ClientSize = new System.Drawing.Size(550, 600);
+                viewForm.StartPosition = FormStartPosition.CenterScreen;
+                viewForm.Controls.Clear();
+                viewForm.Controls.Add(MyWebBrower);
+                viewForm.FormClosing += new FormClosingEventHandler(viewForm_FormClosing);
+                viewForm.Show();
+                ProcessLogger.Fatal("读取中 09010 " + DateTime.Now.ToString());
+
+                MyWebBrower.Url = new Uri("https://ui.ptlogin2.qq.com/cgi-bin/login?style=9&appid=522005705&daid=4&s_url=https%3A%2F%2Fw.mail.qq.com%2Fcgi-bin%2Flogin%3Fvt%3Dpassport%26vm%3Dwsk%26delegate_url%3D%26f%3Dxhtml%26target%3D&hln_css=http%3A%2F%2Fmail.qq.com%2Fzh_CN%2Fhtmledition%2Fimages%2Flogo%2Fqqmail%2Fqqmail_logo_default_200h.png&low_login=1&hln_autologin=记住登录状态&pt_no_onekey=1");//&num=15
+
+
+                //share
+                //MyWebBrower.Url = new Uri(NOW_link + "=yl3m");              
+
+                ProcessLogger.Fatal("接入 前 091102 " + DateTime.Now.ToString());
+
+
+                tsStatusLabel1.Text = "接入 ...." + MyWebBrower.Url;
+
+            }
+            catch (Exception ex)
+            {
+                ProcessLogger.Fatal("Ex881" + ex + DateTime.Now.ToString());
+
+                //   MessageBox.Show("错误：0001" + ex);
+                return;
+                throw ex;
+            }
+
+        }
+        void MyWebBrower_BeforeNewWindow2(object sender, WebBrowserExtendedNavigatingEventArgs e)
+        {
+            #region 在原有窗口导航出新页
+            //e.Cancel = true;//http://pro.wwpack-crest.hp.com/wwpak.online/regResults.aspx
+            //MyWebBrower.Navigate(e.Url);
+            #endregion
+        }
+        private void viewForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isrun != ProcessStatus.关闭页面)
+            {
+                if (MessageBox.Show("正在进行，是否中止?", "关闭", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    if (MyWebBrower != null)
+                    {
+                        if (MyWebBrower.IsBusy)
+                        {
+                            MyWebBrower.Stop();
+                        }
+                        MyWebBrower.Dispose();
+                        MyWebBrower = null;
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+        protected void AnalysisWebInfo2(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            int runindex = 0;
+            try
+            {
+                tsStatusLabel1.Text = caizhong + "接入 89902 ....";
+                ProcessLogger.Fatal("AnalysisWebInfo2接入 89902" + DateTime.Now.ToString());
+
+                myDoc = sender as WbBlockNewUrl;
+
+                #region 界面1  //登录
+                if (myDoc != null && myDoc.Url.ToString().IndexOf(NOW_link) >= 0 && login == 0)
+                {
+                    HtmlElement userName = null;
+                    HtmlElement password = null;
+                    HtmlElement submit = null;
+
+                    runindex = 1;
+
+
+                    tsStatusLabel1.Text = caizhong + "登录 ....";
+                    ProcessLogger.Fatal("接入界面" + DateTime.Now.ToString());
+
+                    //HtmlElementCollection atab = myDoc.Document.GetElementsByTagName("a");
+                    //if (atab != null)
+                    //{
+                    //    foreach (HtmlElement item in atab)
+                    //    {
+                    //        string inx = item.OuterHtml;
+
+                    //        if (item.GetAttribute("id") == "switcher_plogin")
+                    //        {
+                    //            item.InvokeMember("Click");
+                    //        }
+                    //    }
+
+                    //    loading = true;
+                    //    while (loading == true)
+                    //    {
+
+                    //        Application.DoEvents();
+                    //        Get_Kaijiang();
+                    //    }
+
+
+                    //}
+                    HtmlElementCollection atab = myDoc.Document.GetElementsByTagName("input");
+                    if (atab != null)
+                        foreach (HtmlElement item in atab)
+                        {
+                            if (item.GetAttribute("name") == "u")
+                                userName = item;
+                            if (item.GetAttribute("name") == "p")
+                                password = item;
+                            if (item.GetAttribute("id") == "go")
+                                submit = item;
+                        }
+                    atab = myDoc.Document.GetElementsByTagName("div");
+                    if (atab != null)
+                    {
+                        foreach (HtmlElement item in atab)
+                        {
+                            if (item.GetAttribute("id") == "go")
+                                submit = item;
+                        }
+                    }
+                    if (userName != null)
+                    {
+                        userName.SetAttribute("Value", "512250428");
+                        if (password != null)
+                            password.SetAttribute("Value", "lyh15940836280");
+                      //  submit.InvokeMember("Click");
+                    }
+                    tsStatusLabel1.Text = caizhong + "界面1 ....";
+                    ProcessLogger.Fatal("接入界面 002" + DateTime.Now.ToString());
+                    isrun = ProcessStatus.登录界面;
+                    login++;
+
+                }
+                #endregion
+
+
+
+            }
+
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        private void Get_Kaijiang()
+        {
+            if (MyWebBrower == null)
+            {
+                loading = false;
+                return;
+
+            }
+            try
+            {
+
+                IHTMLDocument2 doc = (IHTMLDocument2)MyWebBrower.Document.DomDocument;
+                HTMLDocument myDoc1 = doc as HTMLDocument;
+                if (myDoc1 != null)
+                {
+                    IHTMLElementCollection atab = myDoc1.getElementsByTagName("a");
+                    if (atab != null)
+                    {
+                        foreach (IHTMLElement item in atab)
+                        {
+                            string inx = item.outerHTML;
+                            //<A class=login_box_forgotpassword href="https://aq.qq.com/cn2/findpsw/pc/pc_find_pwd_input_account?pw_type=6&amp;aquin=&amp;source_id=2705" target=_blank>忘了密码？</A>
+                            if (inx.Contains("tabIndex"))
+                            {
+
+                                item.click();
+                                loading = false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ProcessLogger.Fatal("EX23092" + DateTime.Now.ToString() + ex);
+                return;
+                throw;
+            }
+        }
+
+
+        public string linkid(int typeid)
+        {
+            Typeidlink = typeid;
+
+            string link = "";
+            if (typeid == 1)
+                link = "https://ui.ptlogin2.qq.com/cgi-bin/login?";//&num=15
+            else if (typeid == 2)
+                link = "http://hlj11x5.icaile.com/?op";
+            NOW_link = link;
+
+            return link;
+
+        }
     }
 }
