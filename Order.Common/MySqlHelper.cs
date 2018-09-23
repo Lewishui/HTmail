@@ -17,7 +17,7 @@ namespace Order.Common
 
         string path = AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt";
         private static string[] fileText = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt");
-        private static string connstr = "server=" + fileText[0] + ";user=qdm183517594;password=lyh07910;database=qdm183517594_db;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
+        private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=Emailauto;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
 
 
         #region 执行查询语句，返回MySqlDataReader
@@ -31,9 +31,12 @@ namespace Order.Common
             MySqlConnection connection = new MySqlConnection(connstr);
             MySqlCommand cmd = new MySqlCommand(sqlString, connection);
             MySqlDataReader myReader = null;
+         
             try
             {
+                if (connection.State != ConnectionState.Open) 
                 connection.Open();
+                cmd.CommandTimeout = 999;
                 myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 return myReader;
             }
@@ -44,7 +47,7 @@ namespace Order.Common
             }
             finally
             {
-                if (myReader == null)
+               if (myReader == null)
                 {
                     cmd.Dispose();
                     connection.Close();

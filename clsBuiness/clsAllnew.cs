@@ -1,9 +1,13 @@
 ﻿using HT.DB;
 using ISR_System;
 using mshtml;
+using Order.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Data.Common;
+using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -61,7 +65,14 @@ namespace clsBuiness
         string NOW_link;
         int Typeidlink = 0;
         bool loading;
+        private string dataSource = "H.sqlite";
+        string newsth;
+      
+        public clsAllnew()
+        {
+            newsth = AppDomain.CurrentDomain.BaseDirectory + "\\" + dataSource;
 
+        }
 
         CookieContainer cookie = new CookieContainer();
 
@@ -144,7 +155,44 @@ namespace clsBuiness
                 }
             }
         }
+        public void SendMailqq()
+        {
 
+            {
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+                client.Host = "smtp.qq.com";
+                client.UseDefaultCredentials = false;
+                //
+                //启用功能修改处
+                //
+                client.Credentials = new System.Net.NetworkCredential("512250428@qq.com", "bdtjdpzvnzbjbhfj");
+                client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                client.Port = 25;
+                client.EnableSsl = true;//经过ssl加密    
+                //
+                //启用功能修改处
+                //
+                System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage("512250428@qq.com", "1623005800@qq.com");
+                message.Subject = "忘记密码";
+                message.Body = "您的登录名户和密码分别为:" + "1623005800@qq.com" + "  " + "c1623005800@qq.com";
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.IsBodyHtml = true;
+                //  message.Headers.Add("X-Mailer", "Microsoft Outlook");
+
+                //添加附件需将(附件先上传到服务器)
+                // System.Net.Mail.Attachment data = new System.Net.Mail.Attachment(@"UpFile\fj.rar",System.Net.Mime.MediaTypeNames.Application.Octet);
+                //message.Attachments.Add(data);
+                try
+                {
+                    client.Send(message);
+                    //  this.lbMessage.Text = "登录名和密码已经发送到您的" + "512250428@qq.com" + "邮箱!";
+                }
+                catch (Exception ex)
+                {
+                    // this.lbMessage.Text = "Send Email Failed." + ex.ToString();
+                }
+            }
+        }
         public void SendMail2()
         {
             try
@@ -321,7 +369,7 @@ namespace clsBuiness
             #endregion
         }
 
-        public List<clsend_info> ReadWEBAquila()
+        public List<AddconnectGroup_info> ReadWEBAquila()
         {
             //NOW_link = "";
             caizhong = "";
@@ -589,6 +637,238 @@ namespace clsBuiness
             NOW_link = link;
 
             return link;
+
+        }
+
+
+        public int create_AddconnectGroup_Server(List<AddconnectGroup_info> AddMAPResult)
+        {
+            int isrun = 0;
+          string sql = "insert into sendconnectgroup(name) values ('" + AddMAPResult[0].name + "')";
+
+            //isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
+              isrun = MySqlHelper.ExecuteSql(sql);
+
+            return isrun;
+        }
+        public List<AddconnectGroup_info> findconnectGroup(string findtext)
+        {
+
+            //SQLiteConnection dbConn = new SQLiteConnection("Data Source=" + dataSource);
+
+            //dbConn.Open();
+            //SQLiteCommand dbCmd = dbConn.CreateCommand();
+            //dbCmd.CommandText = findtext;
+
+            //DbDataReader reader = SQLiteHelper.ExecuteReader("Data Source=" + newsth, dbCmd);
+
+
+            MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
+         
+            List<AddconnectGroup_info> ClaimReport_Server = new List<AddconnectGroup_info>();
+
+            while (reader.Read())
+            {
+                AddconnectGroup_info item = new AddconnectGroup_info();
+
+                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                    item._id = Convert.ToString( reader.GetValue(0));
+                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                    item.name = reader.GetString(1);
+               
+                ClaimReport_Server.Add(item);
+
+
+            }
+            return ClaimReport_Server;
+        }
+        public int create_Addconnect_Server(List<Addconnect_info> AddMAPResult)
+        {
+            string sql = "insert into Addsend_connect(name,mail,address,phone,cmname,weblink,groupID) values ('" + AddMAPResult[0].name + "','" + AddMAPResult[0].mail + "','" + AddMAPResult[0].address + "','" + AddMAPResult[0].phone + "','" + AddMAPResult[0].cmname + "','" + AddMAPResult[0].weblink + "','" + AddMAPResult[0].groupID + "')";
+
+            //int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
+            int isrun = MySqlHelper.ExecuteSql(sql);
+
+            return isrun;   
+        }
+        public List<Addconnect_info> findAddconnec(string findtext)
+        {
+            MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
+            List<Addconnect_info> ClaimReport_Server = new List<Addconnect_info>();
+
+            while (reader.Read())
+            {
+                Addconnect_info item = new Addconnect_info();
+                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                    item._id = Convert.ToString(reader.GetValue(0));
+             
+                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                    item.name = reader.GetString(1);
+                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                    item.mail = reader.GetString(2);
+                if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
+                    item.address = reader.GetString(3);
+                if (reader.GetValue(4) != null && Convert.ToString(reader.GetValue(4)) != "")
+                    item.phone = reader.GetString(4);
+                if (reader.GetValue(5) != null && Convert.ToString(reader.GetValue(5)) != "")
+                    item.cmname = reader.GetString(5);
+                if (reader.GetValue(6) != null && Convert.ToString(reader.GetValue(6)) != "")
+                    item.weblink = reader.GetString(6);
+                if (reader.GetValue(7) != null && Convert.ToString(reader.GetValue(7)) != "")
+                    item.groupID = reader.GetString(7);
+                 
+
+
+
+                ClaimReport_Server.Add(item);
+
+                //这里做数据处理....
+            }
+            return ClaimReport_Server;
+        }
+        public void downcsv(DataGridView dataGridView)
+        {
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("Sorry , No Data Output !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.DefaultExt = ".csv";
+            saveFileDialog.Filter = "csv|*.csv";
+            string strFileName = "  信息" + "_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            saveFileDialog.FileName = strFileName;
+            if (saveFileDialog.ShowDialog( ) == DialogResult.OK)
+            {
+                strFileName = saveFileDialog.FileName.ToString();
+            }
+            else
+            {
+                return;
+            }
+            FileStream fa = new FileStream(strFileName, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fa, Encoding.Unicode);
+            string delimiter = "\t";
+            string strHeader = "";
+            for (int i = 0; i < dataGridView.Columns.Count; i++)
+            {
+                strHeader += dataGridView.Columns[i].HeaderText + delimiter;
+            }
+            sw.WriteLine(strHeader);
+
+            //output rows data
+            for (int j = 0; j < dataGridView.Rows.Count; j++)
+            {
+                string strRowValue = "";
+
+                for (int k = 0; k < dataGridView.Columns.Count; k++)
+                {
+                    if (dataGridView.Rows[j].Cells[k].Value != null)
+                    {
+                        strRowValue += dataGridView.Rows[j].Cells[k].Value.ToString().Replace("\r\n", " ").Replace("\n", "") + delimiter;
+                  
+
+                    }
+                    else
+                    {
+                        strRowValue += dataGridView.Rows[j].Cells[k].Value + delimiter;
+                    }
+                }
+                sw.WriteLine(strRowValue);
+            }
+            sw.Close();
+            fa.Close();
+            MessageBox.Show("Dear User, Down File  Successful ！", "System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public List<Addconnect_info> GetAddconnectExcelnfo(string Alist)
+        {
+
+            List<Addconnect_info> MAPPINGResult = new List<Addconnect_info>();
+            try
+            {
+                 System.Globalization.CultureInfo CurrentCI = System.Threading.Thread.CurrentThread.CurrentCulture;
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+                Microsoft.Office.Interop.Excel.Application excelApp;
+                {
+                    string path = Alist;
+                    excelApp = new Microsoft.Office.Interop.Excel.Application();
+                    Microsoft.Office.Interop.Excel.Workbook analyWK = excelApp.Workbooks.Open(path, Type.Missing, Type.Missing, Type.Missing,
+                        "htc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                        Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+                    Microsoft.Office.Interop.Excel.Worksheet WS = (Microsoft.Office.Interop.Excel.Worksheet)analyWK.Worksheets[1];
+                    Microsoft.Office.Interop.Excel.Range rng;
+                    rng = WS.Range[WS.Cells[1, 1], WS.Cells[WS.UsedRange.Rows.Count, 16]];
+                    int rowCount = WS.UsedRange.Rows.Count ;
+                    object[,] o = new object[2, 1];
+                    o = (object[,])rng.Value2;
+                    int wscount = analyWK.Worksheets.Count;
+                    clsCommHelp.CloseExcel(excelApp, analyWK);
+              
+                    for (int i =2; i <= rowCount; i++)
+                    {
+                        Addconnect_info temp = new Addconnect_info();
+
+                        #region 基础信息
+
+                        temp.name = "";
+                        if (o[i, 1] != null)
+                            temp.name = o[i, 1].ToString().Trim();
+
+                        temp.mail = "";
+                        if (o[i, 2] != null)
+                            temp.mail = o[i, 2].ToString().Trim();
+
+
+                        temp.address = "";
+                        if (o[i, 3] != null)
+                            temp.address = o[i, 3].ToString().Trim();
+
+                        //卖场代码
+
+                        temp.phone = "";
+                        if (o[i, 4] != null)
+                            temp.phone = o[i, 4].ToString().Trim();
+
+                        temp.cmname = "";
+                        if (o[i, 5] != null)
+                            temp.cmname = o[i, 5].ToString().Trim();
+
+                        temp.weblink = "";
+                        if (o[i, 6] != null)
+                            temp.weblink = o[i, 6].ToString().Trim();
+                        
+                        #endregion
+                        MAPPINGResult.Add(temp);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: 01032" + ex);
+                return null;
+
+                throw;
+            }
+            return MAPPINGResult;
+
+        }
+        public int deletecustomer(string name)
+        {
+            string sql2 = "delete from Addsend_connect where   _id='" + name + "'";
+            int isrun = MySqlHelper.ExecuteSql(sql2);
+
+            return isrun;
+
+        }
+        public int deletegroup(string name)
+        {
+            string sql2 = "delete from sendconnectgroup where   _id='" + name + "'";
+            int isrun = MySqlHelper.ExecuteSql(sql2);
+
+            return isrun;
 
         }
     }

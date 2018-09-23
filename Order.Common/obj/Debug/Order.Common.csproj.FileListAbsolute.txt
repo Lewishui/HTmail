@@ -32,3 +32,8 @@ D:\Dev Project\autosendmail\HTmail\Order.Common\bin\Debug\Order.Common.pdb
 D:\Dev Project\autosendmail\HTmail\Order.Common\obj\Debug\Order.Common.csprojResolveAssemblyReference.cache
 D:\Dev Project\autosendmail\HTmail\Order.Common\obj\Debug\Order.Common.dll
 D:\Dev Project\autosendmail\HTmail\Order.Common\obj\Debug\Order.Common.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\Order.Common\bin\Debug\Order.Common.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\Order.Common\bin\Debug\Order.Common.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\Order.Common\obj\Debug\Order.Common.csprojResolveAssemblyReference.cache
+F:\mysteap\Devpro\HTTPmail\HTmail\Order.Common\obj\Debug\Order.Common.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\Order.Common\obj\Debug\Order.Common.pdb

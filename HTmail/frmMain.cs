@@ -50,7 +50,8 @@ namespace HTmail
 
             //初始化信息
             clsAllnew BusinessHelp = new clsAllnew();
-
+        //   BusinessHelp. SendMailqq();
+            
             //BusinessHelp. SendMail();
             //   BusinessHelp.CDOMessageSend();
 
@@ -59,7 +60,7 @@ namespace HTmail
 
             //   BusinessHelp.SendMailUseGmail();
 
-            //   BusinessHelp.outllookSend();
+             BusinessHelp.outllookSend();
 
             BusinessHelp.ProcessLogger = ProcessLogger;
             BusinessHelp.ExceptionLogger = ExceptionLogger;
@@ -69,7 +70,7 @@ namespace HTmail
 
             BusinessHelp.linkid(Convert.ToInt32(1));
 
-            List<clsend_info> ddd = BusinessHelp.ReadWEBAquila();
+            List<AddconnectGroup_info> ddd = BusinessHelp.ReadWEBAquila();
 
             MessageBox.Show("ok");
         }

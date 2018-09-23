@@ -32,3 +32,17 @@ D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmMessageShow.resour
 D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Interop.SHDocVw.dll
 D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Interop.CDO.dll
 D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\Interop.ADODB.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmMessageShow.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HT.DB.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\log4net.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\Order.Common.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\MySql.Data.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System.Data.SQLite.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HT.DB.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\Order.Common.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmMailCenter.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmReception.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmAddconnectGroup.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System.Data.SQLite.xml
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmSendTo.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadSend.resources
