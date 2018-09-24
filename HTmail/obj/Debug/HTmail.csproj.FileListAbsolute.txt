@@ -46,3 +46,11 @@ F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmAddconnectGroup.res
 F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System.Data.SQLite.xml
 F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmSendTo.resources
 F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadSend.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmFromReception.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmFromTo.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmAddFromGroup.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadFrom.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmMailTemplate.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmAddTemplate.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadTemplate.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmSendpage.resources

@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Threading;
 
 namespace Order.Common
 {
@@ -34,6 +35,8 @@ namespace Order.Common
          
             try
             {
+                
+                //Thread.Sleep(1000); 
                 if (connection.State != ConnectionState.Open) 
                 connection.Open();
                 cmd.CommandTimeout = 999;

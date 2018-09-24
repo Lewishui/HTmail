@@ -67,11 +67,13 @@ namespace clsBuiness
         bool loading;
         private string dataSource = "H.sqlite";
         string newsth;
-      
+        string PCid;
+
         public clsAllnew()
         {
             newsth = AppDomain.CurrentDomain.BaseDirectory + "\\" + dataSource;
 
+            PCid = clsCommHelp.GetCpuID();
         }
 
         CookieContainer cookie = new CookieContainer();
@@ -563,7 +565,7 @@ namespace clsBuiness
                         userName.SetAttribute("Value", "512250428");
                         if (password != null)
                             password.SetAttribute("Value", "lyh15940836280");
-                      //  submit.InvokeMember("Click");
+                        //  submit.InvokeMember("Click");
                     }
                     tsStatusLabel1.Text = caizhong + "界面1 ....";
                     ProcessLogger.Fatal("接入界面 002" + DateTime.Now.ToString());
@@ -640,14 +642,15 @@ namespace clsBuiness
 
         }
 
+        #region OPE
 
         public int create_AddconnectGroup_Server(List<AddconnectGroup_info> AddMAPResult)
         {
             int isrun = 0;
-          string sql = "insert into sendconnectgroup(name) values ('" + AddMAPResult[0].name + "')";
+            string sql = "insert into sendconnectgroup(name,PCid) values ('" + AddMAPResult[0].name + "','" + PCid + "')";
 
             //isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
-              isrun = MySqlHelper.ExecuteSql(sql);
+            isrun = MySqlHelper.ExecuteSql(sql);
 
             return isrun;
         }
@@ -662,9 +665,9 @@ namespace clsBuiness
 
             //DbDataReader reader = SQLiteHelper.ExecuteReader("Data Source=" + newsth, dbCmd);
 
-
+            findtext = sqlAddPCID(findtext);
             MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
-         
+
             List<AddconnectGroup_info> ClaimReport_Server = new List<AddconnectGroup_info>();
 
             while (reader.Read())
@@ -672,27 +675,52 @@ namespace clsBuiness
                 AddconnectGroup_info item = new AddconnectGroup_info();
 
                 if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
-                    item._id = Convert.ToString( reader.GetValue(0));
+                    item._id = Convert.ToString(reader.GetValue(0));
                 if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
                     item.name = reader.GetString(1);
-               
+
+                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                    item.PCid = reader.GetString(2);
+
+
                 ClaimReport_Server.Add(item);
 
 
             }
             return ClaimReport_Server;
         }
+
+        private string sqlAddPCID(string findtext)
+        {
+            if (findtext.Contains("where"))
+            {
+                if (findtext.Length > 0)
+                {
+                    findtext += " And PCid like '%" + PCid + "%'";
+                }
+            }
+            else
+            {
+                if (findtext.Length > 0)
+                {
+                    findtext += " where PCid like '%" + PCid + "%'";
+                }
+
+            }
+            return findtext;
+        }
         public int create_Addconnect_Server(List<Addconnect_info> AddMAPResult)
         {
-            string sql = "insert into Addsend_connect(name,mail,address,phone,cmname,weblink,groupID) values ('" + AddMAPResult[0].name + "','" + AddMAPResult[0].mail + "','" + AddMAPResult[0].address + "','" + AddMAPResult[0].phone + "','" + AddMAPResult[0].cmname + "','" + AddMAPResult[0].weblink + "','" + AddMAPResult[0].groupID + "')";
+            string sql = "insert into Addsend_connect(name,mail,address,phone,cmname,weblink,groupID,PCid) values ('" + AddMAPResult[0].name + "','" + AddMAPResult[0].mail + "','" + AddMAPResult[0].address + "','" + AddMAPResult[0].phone + "','" + AddMAPResult[0].cmname + "','" + AddMAPResult[0].weblink + "','" + AddMAPResult[0].groupID + "','" + PCid + "')";
 
             //int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
             int isrun = MySqlHelper.ExecuteSql(sql);
 
-            return isrun;   
+            return isrun;
         }
         public List<Addconnect_info> findAddconnec(string findtext)
         {
+            findtext = sqlAddPCID(findtext);
             MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
             List<Addconnect_info> ClaimReport_Server = new List<Addconnect_info>();
 
@@ -701,7 +729,7 @@ namespace clsBuiness
                 Addconnect_info item = new Addconnect_info();
                 if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
                     item._id = Convert.ToString(reader.GetValue(0));
-             
+
                 if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
                     item.name = reader.GetString(1);
                 if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
@@ -716,8 +744,10 @@ namespace clsBuiness
                     item.weblink = reader.GetString(6);
                 if (reader.GetValue(7) != null && Convert.ToString(reader.GetValue(7)) != "")
                     item.groupID = reader.GetString(7);
-                 
 
+
+                if (reader.GetValue(8) != null && Convert.ToString(reader.GetValue(8)) != "")
+                    item.PCid = reader.GetString(8);
 
 
                 ClaimReport_Server.Add(item);
@@ -738,7 +768,7 @@ namespace clsBuiness
             saveFileDialog.Filter = "csv|*.csv";
             string strFileName = "  信息" + "_" + DateTime.Now.ToString("yyyyMMddHHmmss");
             saveFileDialog.FileName = strFileName;
-            if (saveFileDialog.ShowDialog( ) == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 strFileName = saveFileDialog.FileName.ToString();
             }
@@ -766,7 +796,7 @@ namespace clsBuiness
                     if (dataGridView.Rows[j].Cells[k].Value != null)
                     {
                         strRowValue += dataGridView.Rows[j].Cells[k].Value.ToString().Replace("\r\n", " ").Replace("\n", "") + delimiter;
-                  
+
 
                     }
                     else
@@ -786,7 +816,7 @@ namespace clsBuiness
             List<Addconnect_info> MAPPINGResult = new List<Addconnect_info>();
             try
             {
-                 System.Globalization.CultureInfo CurrentCI = System.Threading.Thread.CurrentThread.CurrentCulture;
+                System.Globalization.CultureInfo CurrentCI = System.Threading.Thread.CurrentThread.CurrentCulture;
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
                 Microsoft.Office.Interop.Excel.Application excelApp;
                 {
@@ -799,13 +829,13 @@ namespace clsBuiness
                     Microsoft.Office.Interop.Excel.Worksheet WS = (Microsoft.Office.Interop.Excel.Worksheet)analyWK.Worksheets[1];
                     Microsoft.Office.Interop.Excel.Range rng;
                     rng = WS.Range[WS.Cells[1, 1], WS.Cells[WS.UsedRange.Rows.Count, 16]];
-                    int rowCount = WS.UsedRange.Rows.Count ;
+                    int rowCount = WS.UsedRange.Rows.Count;
                     object[,] o = new object[2, 1];
                     o = (object[,])rng.Value2;
                     int wscount = analyWK.Worksheets.Count;
                     clsCommHelp.CloseExcel(excelApp, analyWK);
-              
-                    for (int i =2; i <= rowCount; i++)
+
+                    for (int i = 2; i <= rowCount; i++)
                     {
                         Addconnect_info temp = new Addconnect_info();
 
@@ -837,7 +867,7 @@ namespace clsBuiness
                         temp.weblink = "";
                         if (o[i, 6] != null)
                             temp.weblink = o[i, 6].ToString().Trim();
-                        
+
                         #endregion
                         MAPPINGResult.Add(temp);
                     }
@@ -871,5 +901,276 @@ namespace clsBuiness
             return isrun;
 
         }
+
+        public int create_FromTo_Server(List<FromList_info> AddMAPResult)
+        {
+            string sql = "insert into FromList(mail,password,mark,groupID,PCid) values ('" + AddMAPResult[0].mail + "','" + AddMAPResult[0].password + "','" + AddMAPResult[0].mark + "','" + AddMAPResult[0].groupID + "','" + PCid + "')";
+
+            int isrun = MySqlHelper.ExecuteSql(sql);
+
+            return isrun;
+        }
+        public int create_FromGroup_Server(List<AddconnectGroup_info> AddMAPResult)
+        {
+            int isrun = 0;
+            string sql = "insert into Fromgroup(name,PCid) values ('" + AddMAPResult[0].name + "','" + PCid + "')";
+
+            isrun = MySqlHelper.ExecuteSql(sql);
+
+            return isrun;
+        }
+
+        public List<FromList_info> findFromList(string findtext)
+        {
+            findtext = sqlAddPCID(findtext);
+            MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
+            List<FromList_info> ClaimReport_Server = new List<FromList_info>();
+
+            while (reader.Read())
+            {
+                FromList_info item = new FromList_info();
+                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                    item._id = Convert.ToString(reader.GetValue(0));
+
+                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                    item.mail = reader.GetString(1);
+                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                    item.password = reader.GetString(2);
+                if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
+                    item.mark = reader.GetString(3);
+                if (reader.GetValue(4) != null && Convert.ToString(reader.GetValue(4)) != "")
+                    item.groupID = reader.GetString(4);
+
+                if (reader.GetValue(5) != null && Convert.ToString(reader.GetValue(5)) != "")
+                    item.PCid = reader.GetString(5);
+
+                ClaimReport_Server.Add(item);
+
+                //这里做数据处理....
+            }
+            return ClaimReport_Server;
+        }
+        public List<AddconnectGroup_info> findFromGroup(string findtext)
+        {
+            findtext = sqlAddPCID(findtext);
+
+            MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
+
+            List<AddconnectGroup_info> ClaimReport_Server = new List<AddconnectGroup_info>();
+
+            while (reader.Read())
+            {
+                AddconnectGroup_info item = new AddconnectGroup_info();
+
+                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                    item._id = Convert.ToString(reader.GetValue(0));
+                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                    item.name = reader.GetString(1);
+                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                    item.PCid = reader.GetString(2);
+
+                ClaimReport_Server.Add(item);
+
+
+            }
+            return ClaimReport_Server;
+        }
+        public List<FromList_info> GetFromListExcelnfo(string Alist)
+        {
+
+            List<FromList_info> MAPPINGResult = new List<FromList_info>();
+            try
+            {
+                System.Globalization.CultureInfo CurrentCI = System.Threading.Thread.CurrentThread.CurrentCulture;
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+                Microsoft.Office.Interop.Excel.Application excelApp;
+                {
+                    string path = Alist;
+                    excelApp = new Microsoft.Office.Interop.Excel.Application();
+                    Microsoft.Office.Interop.Excel.Workbook analyWK = excelApp.Workbooks.Open(path, Type.Missing, Type.Missing, Type.Missing,
+                        "htc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                        Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+                    Microsoft.Office.Interop.Excel.Worksheet WS = (Microsoft.Office.Interop.Excel.Worksheet)analyWK.Worksheets[1];
+                    Microsoft.Office.Interop.Excel.Range rng;
+                    rng = WS.Range[WS.Cells[1, 1], WS.Cells[WS.UsedRange.Rows.Count, 16]];
+                    int rowCount = WS.UsedRange.Rows.Count;
+                    object[,] o = new object[2, 1];
+                    o = (object[,])rng.Value2;
+                    int wscount = analyWK.Worksheets.Count;
+                    clsCommHelp.CloseExcel(excelApp, analyWK);
+
+                    for (int i = 2; i <= rowCount; i++)
+                    {
+                        FromList_info temp = new FromList_info();
+
+                        #region 基础信息
+
+                        temp.mail = "";
+                        if (o[i, 1] != null)
+                            temp.mail = o[i, 1].ToString().Trim();
+
+                        temp.password = "";
+                        if (o[i, 2] != null)
+                            temp.password = o[i, 2].ToString().Trim();
+
+
+                        temp.mark = "";
+                        if (o[i, 3] != null)
+                            temp.mark = o[i, 3].ToString().Trim();
+
+
+
+                        #endregion
+                        MAPPINGResult.Add(temp);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: 01032" + ex);
+                return null;
+
+                throw;
+            }
+            return MAPPINGResult;
+
+        }
+        public int deleteFromList(string name)
+        {
+            string sql2 = "delete from FromList where   _id='" + name + "'";
+            int isrun = MySqlHelper.ExecuteSql(sql2);
+
+            return isrun;
+
+        }
+        public int deleteFromgroup(string name)
+        {
+            string sql2 = "delete from Fromgroup where   _id='" + name + "'";
+            int isrun = MySqlHelper.ExecuteSql(sql2);
+
+            return isrun;
+
+        }
+
+        public int create_mailTemplateServer(List<Template_info> AddMAPResult)
+        {
+            string sql = "insert into mailTemplate(subject,body,acc,groupID,PCid) values ('" + AddMAPResult[0].subject + "','" + AddMAPResult[0].body + "','" + AddMAPResult[0].acc + "','" + AddMAPResult[0].groupID + "','" + PCid + "')";
+
+            int isrun = MySqlHelper.ExecuteSql(sql);
+
+            return isrun;
+        }
+        public int update_mailTemplateServer(string findtext)
+        {
+
+          //  findtext = sqlAddPCID(findtext);
+
+
+            int isrun = MySqlHelper.ExecuteSql(findtext);
+
+            return isrun;
+        }
+
+        public List<Template_info> findTemplatetGroup(string findtext)
+        {
+            findtext = sqlAddPCID(findtext);
+            MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
+
+            List<Template_info> ClaimReport_Server = new List<Template_info>();
+
+            while (reader.Read())
+            {
+                Template_info item = new Template_info();
+
+                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                    item._id = Convert.ToString(reader.GetValue(0));
+                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                    item.subject = reader.GetString(1);
+
+                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                    item.body = reader.GetString(2);
+
+                if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
+                    item.acc = reader.GetString(3);
+                if (reader.GetValue(4) != null && Convert.ToString(reader.GetValue(4)) != "")
+                    item.groupID = reader.GetString(4);
+
+                if (reader.GetValue(5) != null && Convert.ToString(reader.GetValue(5)) != "")
+                    item.PCid = reader.GetString(5);
+
+                ClaimReport_Server.Add(item);
+
+
+            }
+            return ClaimReport_Server;
+        }
+        public List<Template_info> GetUploadTemplateExcelnfo(string Alist)
+        {
+
+            List<Template_info> MAPPINGResult = new List<Template_info>();
+            try
+            {
+                System.Globalization.CultureInfo CurrentCI = System.Threading.Thread.CurrentThread.CurrentCulture;
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+                Microsoft.Office.Interop.Excel.Application excelApp;
+                {
+                    string path = Alist;
+                    excelApp = new Microsoft.Office.Interop.Excel.Application();
+                    Microsoft.Office.Interop.Excel.Workbook analyWK = excelApp.Workbooks.Open(path, Type.Missing, Type.Missing, Type.Missing,
+                        "htc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                        Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+                    Microsoft.Office.Interop.Excel.Worksheet WS = (Microsoft.Office.Interop.Excel.Worksheet)analyWK.Worksheets[1];
+                    Microsoft.Office.Interop.Excel.Range rng;
+                    rng = WS.Range[WS.Cells[1, 1], WS.Cells[WS.UsedRange.Rows.Count, 16]];
+                    int rowCount = WS.UsedRange.Rows.Count;
+                    object[,] o = new object[2, 1];
+                    o = (object[,])rng.Value2;
+                    int wscount = analyWK.Worksheets.Count;
+                    clsCommHelp.CloseExcel(excelApp, analyWK);
+
+                    for (int i = 2; i <= rowCount; i++)
+                    {
+                        Template_info temp = new Template_info();
+
+                        #region 基础信息
+
+                        temp.subject = "";
+                        if (o[i, 1] != null)
+                            temp.subject = o[i, 1].ToString().Trim();
+
+                        temp.body = "";
+                        if (o[i, 2] != null)
+                            temp.body = o[i, 2].ToString().Trim();
+
+
+                        temp.acc = "";
+                        if (o[i, 3] != null)
+                            temp.acc = o[i, 3].ToString().Trim();
+
+
+
+                        #endregion
+                        MAPPINGResult.Add(temp);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: 01032" + ex);
+                return null;
+
+                throw;
+            }
+            return MAPPINGResult;
+
+        }
+       
+        #endregion
     }
 }

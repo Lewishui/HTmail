@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 
 namespace Order.Common
@@ -289,6 +293,164 @@ namespace Order.Common
 
         }
         #endregion
+        public static string GetMacAddress()
+        {
+            try
+            {
+                string strMac = string.Empty;
+                ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc)
+                {
+                    if ((bool)mo["IPEnabled"] == true)
+                    {
+                        strMac = mo["MacAddress"].ToString();
+                    }
+                }
+                moc = null;
+                mc = null;
+                return strMac;
+            }
+            catch
+            {
+                return "unknown";
+            }
+        }
+        public static string GetDiskID()
+        {
+            try
+            {
+                string strDiskID = string.Empty;
+                ManagementClass mc = new ManagementClass("Win32_DiskDrive");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc)
+                {
+                    strDiskID = mo.Properties["Model"].Value.ToString();
+                }
+                moc = null;
+                mc = null;
+                return strDiskID;
+            }
+            catch
+            {
+                return "unknown";
+            }
+        }
+        public static string GetCpuID()
+        {
+            try
+            {
+                string strCpuID = string.Empty;
+                ManagementClass mc = new ManagementClass("Win32_Processor");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc)
+                {
+                    strCpuID = mo.Properties["ProcessorId"].Value.ToString();
+                }
+                moc = null;
+                mc = null;
+                return strCpuID;
+            }
+            catch
+            {
+                return "unknown";
+            }
+        }  
+
+        public static string getMacAddr_Local()
+        {
+            string madAddr = null;
+            try
+            {
+                ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+                ManagementObjectCollection moc2 = mc.GetInstances();
+                foreach (ManagementObject mo in moc2)
+                {
+                    if (Convert.ToBoolean(mo["IPEnabled"]) == true)
+                    {
+                        madAddr = mo["MacAddress"].ToString();
+                        madAddr = madAddr.Replace(':', '-');
+                    }
+                    mo.Dispose();
+                }
+                if (madAddr == null)
+                {
+                    return "unknown";
+                }
+                else
+                {
+                    return madAddr;
+                }
+            }
+            catch (Exception)
+            {
+                return "unknown";
+            }
+        }
+        /// <summary>
+        /// 取网卡信息
+        /// </summary>
+        /// <returns></returns>
+        public static string GetNetAdapterInfo()
+        {
+            StringBuilder sb = new StringBuilder();
+            NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
+            if (adapters != null)
+            {
+                foreach (NetworkInterface ni in adapters)
+                {
+                    string fCardType = "未知网卡";
+                    IPInterfaceProperties ips = ni.GetIPProperties();
+
+                    PhysicalAddress pa = ni.GetPhysicalAddress();
+                    if (pa == null) continue;
+                    string pastr = pa.ToString();
+                    if (pastr.Length < 7) continue;
+                    if (pastr.Substring(0, 6) == "000000") continue;
+                    if (ni.Name.ToLower().IndexOf("vmware") > -1) continue;
+                    string fRegistryKey = "SYSTEM\\CurrentControlSet\\Control\\Network\\{4D36E972-E325-11CE-BFC1-08002BE10318}\\" + ni.Id + "\\Connection";
+                    RegistryKey rk = Registry.LocalMachine.OpenSubKey(fRegistryKey, false);
+                    if (rk != null)
+                    {
+                        // 区分 PnpInstanceID     
+                        // 如果前面有 PCI 就是本机的真实网卡    
+                        // MediaSubType 为 01 则是常见网卡，02为无线网卡。    
+                        string fPnpInstanceID = rk.GetValue("PnpInstanceID", "").ToString();
+                        int fMediaSubType = Convert.ToInt32(rk.GetValue("MediaSubType", 0));
+                        if (fPnpInstanceID.Length > 3 && fPnpInstanceID.Substring(0, 3) == "PCI")
+                            if (ni.NetworkInterfaceType.ToString().ToLower().IndexOf("wireless") == -1)
+                                fCardType = "物理网卡";
+                            else
+                                fCardType = "无线网卡";
+                        else if (fMediaSubType == 1 || fMediaSubType == 0)
+                            fCardType = "虚拟网卡";
+                        else if (fMediaSubType == 2 || ni.NetworkInterfaceType.ToString().ToLower().IndexOf("wireless") > -1)
+                            fCardType = "无线网卡";
+                        else if (fMediaSubType == 7)
+                            fCardType = "蓝牙";
+                    }
+                    StringBuilder isb = new StringBuilder();
+                    UnicastIPAddressInformationCollection UnicastIPAddressInformationCollection = ips.UnicastAddresses;
+                    foreach (UnicastIPAddressInformation UnicastIPAddressInformation in UnicastIPAddressInformationCollection)
+                    {
+                        if (UnicastIPAddressInformation.Address.AddressFamily == AddressFamily.InterNetwork)
+                            isb.Append(string.Format("Ip Address: {0}", UnicastIPAddressInformation.Address) + "\r\n"); // Ip 地址    
+                    }
+
+                    // IPAddressCollection ipc = ips.DnsAddresses;
+                    //if (ipc.Count > 0)
+                    //{
+                    //    foreach (IPAddress ip in ipc)
+                    //    {
+                    //        isb.Append(string.Format("DNS服务器地址：{0}\r\n",ip));
+                    //    }
+                    //}
+                    string s = string.Format("{0}\r\n描述信息：{1}\r\n类型：{2}\r\n速度：{3} MB\r\nMac地址：{4}\r\n{5}", fCardType, ni.Name, ni.NetworkInterfaceType, ni.Speed / 1024 / 1024, ni.GetPhysicalAddress(), isb.ToString());
+                    sb.Append(s + "\r\n");
+                }
+            }
+            return sb.ToString();
+        }
 
     }
 }
