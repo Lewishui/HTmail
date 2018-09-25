@@ -14,9 +14,6 @@ D:\Dev Project\autosendmail\HTmail\clsBuiness\obj\Debug\clsBuiness.csproj.Resolv
 D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\HT.DB.dll
 D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\log4net.dll
 D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\HT.DB.pdb
-D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Interop.SHDocVw.dll
-D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Interop.ADODB.dll
-D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Interop.CDO.dll
 F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\HT.DB.dll
 F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\log4net.dll
 F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\HT.DB.pdb
@@ -31,3 +28,11 @@ F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.xml
 F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.Linq.dll
 F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\MySql.Data.Entity.dll
 F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\MySql.Data.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\MySql.Data.Entity.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Order.Common.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Order.Common.pdb
+D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.xml
