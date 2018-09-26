@@ -1,1 +1,1 @@
-D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\System\UploadSend.xls
+D:\Dev Project\autosendmail\HTmail\HTmail\bin\Debug\System\UploadFrom.xls
