@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.读取 = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +44,7 @@
             this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -159,7 +161,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(609, 406);
+            this.tabPage2.Size = new System.Drawing.Size(609, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -230,6 +232,7 @@
         private System.Windows.Forms.ToolStripProgressBar pbStatus;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.Timer timer1;
 
     }
 }

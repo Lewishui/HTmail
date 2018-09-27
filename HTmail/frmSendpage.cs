@@ -42,6 +42,36 @@ namespace HTmail
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+          
+            foreach (InputLanguage lang in InputLanguage.InstalledInputLanguages)
+            {
+                
+                this.textBox1.Text += "\r\nName> " + lang.LayoutName + "\r\nCulture> " + lang.Culture.Name + "\r\n";
+            
+            
+            }
+            if (InputLanguage.DefaultInputLanguage.LayoutName.IndexOf("Keyboard") == -1 && InputLanguage.DefaultInputLanguage.Culture.Name.Equals("zh-CN"))
+                    
+            {
+                
+                InputLanguage.CurrentInputLanguage = InputLanguage.DefaultInputLanguage; 
+            
+            
+            }
+            else
+            {
+                foreach (InputLanguage lang in InputLanguage.InstalledInputLanguages)
+                {
+                    if (lang.Culture.Name.Equals("zh-CN") && lang.LayoutName.IndexOf("Keyboard") == -1)
+                    { InputLanguage.CurrentInputLanguage = lang; break; }
+                }
+            }
+
+
+
+
+
 
             try
             {
@@ -145,7 +175,7 @@ namespace HTmail
                 {
                     i++;
 
-               
+
                     if (temp.mail == null || temp.mail == "")
                         continue;
 

@@ -34,10 +34,10 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.读取 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -119,6 +119,15 @@
             this.toolStrip2.TabIndex = 4;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(60, 25);
+            this.toolStripButton8.Text = "发邮件";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            // 
             // 读取
             // 
             this.读取.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,15 +152,6 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(60, 25);
             this.toolStripButton5.Text = "退出";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(60, 25);
-            this.toolStripButton8.Text = "发邮件";
-            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -226,14 +226,14 @@
             // 接收邮箱设置ToolStripMenuItem
             // 
             this.接收邮箱设置ToolStripMenuItem.Name = "接收邮箱设置ToolStripMenuItem";
-            this.接收邮箱设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.接收邮箱设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.接收邮箱设置ToolStripMenuItem.Text = "接收邮箱设置";
             this.接收邮箱设置ToolStripMenuItem.Click += new System.EventHandler(this.接收邮箱设置ToolStripMenuItem_Click);
             // 
             // 发送邮箱设置ToolStripMenuItem
             // 
             this.发送邮箱设置ToolStripMenuItem.Name = "发送邮箱设置ToolStripMenuItem";
-            this.发送邮箱设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.发送邮箱设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.发送邮箱设置ToolStripMenuItem.Text = "发送邮箱设置";
             this.发送邮箱设置ToolStripMenuItem.Click += new System.EventHandler(this.发送邮箱设置ToolStripMenuItem_Click);
             // 
@@ -252,15 +252,16 @@
             // 发信模板ToolStripMenuItem
             // 
             this.发信模板ToolStripMenuItem.Name = "发信模板ToolStripMenuItem";
-            this.发信模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.发信模板ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.发信模板ToolStripMenuItem.Text = "发信模板";
             this.发信模板ToolStripMenuItem.Click += new System.EventHandler(this.发信模板ToolStripMenuItem_Click);
             // 
             // 定时发信ToolStripMenuItem
             // 
             this.定时发信ToolStripMenuItem.Name = "定时发信ToolStripMenuItem";
-            this.定时发信ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.定时发信ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.定时发信ToolStripMenuItem.Text = "定时发信";
+            this.定时发信ToolStripMenuItem.Click += new System.EventHandler(this.定时发信ToolStripMenuItem_Click);
             // 
             // frmMailCenter
             // 

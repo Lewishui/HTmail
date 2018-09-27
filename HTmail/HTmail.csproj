@@ -71,6 +71,12 @@
     <Compile Include="frmAddTemplate.Designer.cs">
       <DependentUpon>frmAddTemplate.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAutosendCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAutosendCenter.Designer.cs">
+      <DependentUpon>frmAutosendCenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBath_uploadSend.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddTemplate.resx">
       <DependentUpon>frmAddTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAutosendCenter.resx">
+      <DependentUpon>frmAutosendCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBath_uploadSend.resx">
       <DependentUpon>frmBath_uploadSend.cs</DependentUpon>

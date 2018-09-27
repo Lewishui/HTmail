@@ -64,3 +64,4 @@ D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmAddFromGroup.resou
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadFrom.resources
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmMailTemplate.resources
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadTemplate.resources
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmAutosendCenter.resources

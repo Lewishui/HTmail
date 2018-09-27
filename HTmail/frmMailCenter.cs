@@ -65,5 +65,10 @@ namespace HTmail
 
             }
         }
+
+        private void 定时发信ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
