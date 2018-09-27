@@ -19,6 +19,9 @@ namespace HTmail
         AddconnectGroup_info m;
         private SortableBindingList<FromList_info> sortableOrderList;
         List<FromList_info> list_Server;
+        public List<FromList_info> Addlist_Server;
+        public string dd;
+
         int rowcount;
 
         public frmFromReception()
@@ -29,11 +32,14 @@ namespace HTmail
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
-            var form = new frmFromTo(m._id);
-
-            if (form.ShowDialog() == DialogResult.OK)
+            if (m != null)
             {
+                var form = new frmFromTo(m._id);
 
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
         }
 
@@ -83,6 +89,9 @@ namespace HTmail
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex < 0)
+                return;
+
             m = new AddconnectGroup_info();
 
             m = Orderinfolist_Server[listBox1.SelectedIndex];
@@ -150,8 +159,9 @@ namespace HTmail
             var rows = GetSelectedRowsBySelectedCells(dataGridView1);
             foreach (DataGridViewRow row in rows)
             {
-                var Diningorder = row.DataBoundItem as Addconnect_info;
-                order_ids.Add((long)Convert.ToInt32(Diningorder._id));
+                var Diningorder = row.DataBoundItem as FromList_info;
+                if (Diningorder != null)
+                    order_ids.Add((long)Convert.ToInt32(Diningorder._id));
             }
 
             return order_ids;
@@ -194,6 +204,30 @@ namespace HTmail
             clsAllnew BusinessHelp = new clsAllnew();
 
             BusinessHelp.downcsv(dataGridView1);
+        }
+
+        private void toolStripDropDownButton5_Click(object sender, EventArgs e)
+        {
+            Addlist_Server = new List<FromList_info>();
+
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if ((bool)dataGridView1.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+
+                    FromList_info item = new FromList_info();
+
+                    item.mail = dataGridView1.Rows[i].Cells["mail"].EditedFormattedValue.ToString();
+
+                    Addlist_Server.Add(item);
+
+
+                }
+            }
+            dd = "OK";
+
+            this.Close();
+
         }
 
     }

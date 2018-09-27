@@ -923,6 +923,7 @@ namespace clsBuiness
         public List<FromList_info> findFromList(string findtext)
         {
             findtext = sqlAddPCID(findtext);
+         //   findtext = "select * from FromList where mail='hzxdqwg01@vip.sina.com'And PCid  like '%178BFBFF00500F10%'";
             MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
             List<FromList_info> ClaimReport_Server = new List<FromList_info>();
 

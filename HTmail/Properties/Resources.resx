@@ -118,11 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bookTypeAddtb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bookTypeAddtb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="readerAddtb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\readerAddtb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="touxiang" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\touxiang.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UpLoad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpLoad.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bookModiAndDeltb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bookModiAndDeltb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bookTypeAddtb1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bookTypeAddtb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="createNewBackup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\createNewBackup.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guestphoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guestphoto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="da" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\da.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Man" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Man.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,31 +154,13 @@
   <data name="BtnSend" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtnSend.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bookTypeAddtb1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bookTypeAddtb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bookModiAndDeltb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bookModiAndDeltb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guestphoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guestphoto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bookAddtb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bookAddtb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bookTypeAddtb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bookTypeAddtb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="touxiang" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\touxiang.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="createNewBackup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\createNewBackup.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UpLoad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UpLoad.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fix" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fix.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="da1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\da.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

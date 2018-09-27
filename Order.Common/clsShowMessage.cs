@@ -14,9 +14,9 @@ namespace Order.Common
         public const string MSG_004 = "Login...";
         public const string MSG_005 = "Login OK !";
         public const string MSG_006 = "System Initialize...... ";
-        public const string MSG_007 = " Runing System Read System Data....";
+        public const string MSG_007 = " 正在运行....";
         public const string MSG_008 = "Reading Exce File，Waiting  ";
-        public const string MSG_009 = "Well， System Process Successful.";
+        public const string MSG_009 = "运行结束，请确认.";
         public const string MSG_010 = "System Synchronous Data Successful !";
         public const string MSG_011 = " Reading Raw Data and Check   ....";
         public const string MSG_012 = "System Update Successful !";

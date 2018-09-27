@@ -38,18 +38,18 @@
             // 
             this.labMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labMessage.ForeColor = System.Drawing.Color.Black;
-            this.labMessage.Location = new System.Drawing.Point(55, 22);
+            this.labMessage.Location = new System.Drawing.Point(55, 20);
             this.labMessage.Name = "labMessage";
-            this.labMessage.Size = new System.Drawing.Size(347, 64);
+            this.labMessage.Size = new System.Drawing.Size(347, 59);
             this.labMessage.TabIndex = 11;
             this.labMessage.Text = "label1";
             // 
             // btnOK
             // 
             this.btnOK.BackColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(323, 88);
+            this.btnOK.Location = new System.Drawing.Point(323, 81);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(100, 35);
+            this.btnOK.Size = new System.Drawing.Size(100, 32);
             this.btnOK.TabIndex = 10;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
@@ -57,12 +57,13 @@
             // 
             // frmMessageShow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 145);
+            this.ClientSize = new System.Drawing.Size(478, 134);
             this.Controls.Add(this.labMessage);
             this.Controls.Add(this.btnOK);
             this.Name = "frmMessageShow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMessageShow";
             this.ResumeLayout(false);
 

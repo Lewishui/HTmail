@@ -20,6 +20,9 @@ namespace HTmail
         List<Addconnect_info> list_Server;
         private SortableBindingList<Addconnect_info> sortableOrderList;
         AddconnectGroup_info m;
+       public List<Addconnect_info> Addlist_Server;
+        public string dd;
+
         public frmReception()
         {
             InitializeComponent();
@@ -66,6 +69,10 @@ namespace HTmail
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex < 0)
+                return;
+
+
             m = new AddconnectGroup_info();
 
             m = Orderinfolist_Server[listBox1.SelectedIndex];
@@ -195,6 +202,30 @@ namespace HTmail
             BindDataGridView();
 
 
+        }
+
+        private void toolStripDropDownButton5_Click(object sender, EventArgs e)
+        {
+   
+            Addlist_Server = new List<Addconnect_info>();
+
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if ((bool)dataGridView1.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+
+                    Addconnect_info item = new Addconnect_info();
+
+                    item.mail = dataGridView1.Rows[i].Cells["mail"].EditedFormattedValue.ToString();
+
+                    Addlist_Server.Add(item);
+
+
+                }
+            }
+            dd = "OK";
+
+            this.Close();
         }
     }
 }
