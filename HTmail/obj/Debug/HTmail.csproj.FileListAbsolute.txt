@@ -65,3 +65,4 @@ D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadFrom.re
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmMailTemplate.resources
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadTemplate.resources
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmAutosendCenter.resources
+F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmAutosendCenter.resources

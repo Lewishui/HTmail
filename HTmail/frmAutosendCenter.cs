@@ -16,5 +16,15 @@ namespace HTmail
         {
             InitializeComponent();
         }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+            var form = new frmSendpage();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

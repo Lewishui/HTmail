@@ -259,6 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favic111on.ico" />
+    <None Include="Resources\Submit.jpg" />
     <None Include="Resources\da.jpg" />
     <None Include="Resources\fix.jpg" />
     <None Include="Resources\BtnSend.jpg" />

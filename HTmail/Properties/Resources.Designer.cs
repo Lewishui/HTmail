@@ -193,6 +193,16 @@ namespace HTmail.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Submit {
+            get {
+                object obj = ResourceManager.GetObject("Submit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap touxiang {
             get {
                 object obj = ResourceManager.GetObject("touxiang", resourceCulture);
