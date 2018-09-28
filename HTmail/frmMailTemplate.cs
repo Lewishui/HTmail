@@ -200,5 +200,11 @@ namespace HTmail
 
 
         }
+
+        private void toolStripDropDownButton5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

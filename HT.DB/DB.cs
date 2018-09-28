@@ -76,4 +76,24 @@ namespace HT.DB
         public string youxianji { get; set; } 
 
     }
+    public class Timer_info
+    {
+        public string _id { get; set; }
+
+        public string time_start { get; set; }
+        public string time_end { get; set; }        
+        public string TemplateID { get; set; }
+        public string mail { get; set; } 
+        public string CCmail { get; set; }
+        public string formto { get; set; }     
+    
+        public string subject { get; set; }
+        public string body { get; set; }
+        public string acc { get; set; }
+        public string groupID { get; set; }
+        public string PCid { get; set; }
+        public string status { get; set; }
+       
+
+    }
 }

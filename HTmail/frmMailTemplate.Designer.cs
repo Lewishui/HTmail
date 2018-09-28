@@ -33,6 +33,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMailTemplate));
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.body = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -44,14 +47,12 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.body = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripDropDownButton5 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -91,6 +92,24 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(484, 277);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // subject
+            // 
+            this.subject.DataPropertyName = "subject";
+            this.subject.HeaderText = "标题";
+            this.subject.Name = "subject";
+            // 
+            // body
+            // 
+            this.body.DataPropertyName = "body";
+            this.body.HeaderText = "内容";
+            this.body.Name = "body";
+            // 
+            // acc
+            // 
+            this.acc.DataPropertyName = "acc";
+            this.acc.HeaderText = "附件";
+            this.acc.Name = "acc";
             // 
             // contextMenuStrip1
             // 
@@ -196,13 +215,29 @@
             this.toolStripDropDownButton1,
             this.toolStripDropDownButton3,
             this.toolStripDropDownButton2,
-            this.toolStripDropDownButton4});
+            this.toolStripDropDownButton4,
+            this.toolStripDropDownButton5});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(649, 45);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.toolStrip1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.15881F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.84119F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(649, 403);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // toolStripDropDownButton1
             // 
@@ -245,38 +280,15 @@
             this.toolStripDropDownButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripDropDownButton4.Click += new System.EventHandler(this.toolStripDropDownButton4_Click);
             // 
-            // tableLayoutPanel1
+            // toolStripDropDownButton5
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.toolStrip1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.15881F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.84119F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(649, 403);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // subject
-            // 
-            this.subject.DataPropertyName = "subject";
-            this.subject.HeaderText = "标题";
-            this.subject.Name = "subject";
-            // 
-            // body
-            // 
-            this.body.DataPropertyName = "body";
-            this.body.HeaderText = "内容";
-            this.body.Name = "body";
-            // 
-            // acc
-            // 
-            this.acc.DataPropertyName = "acc";
-            this.acc.HeaderText = "附件";
-            this.acc.Name = "acc";
+            this.toolStripDropDownButton5.Image = global::HTmail.Properties.Resources.exittb1;
+            this.toolStripDropDownButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton5.Name = "toolStripDropDownButton5";
+            this.toolStripDropDownButton5.Size = new System.Drawing.Size(45, 37);
+            this.toolStripDropDownButton5.Text = "关闭";
+            this.toolStripDropDownButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripDropDownButton5.Click += new System.EventHandler(this.toolStripDropDownButton5_Click);
             // 
             // frmMailTemplate
             // 
@@ -328,5 +340,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subject;
         private System.Windows.Forms.DataGridViewTextBoxColumn body;
         private System.Windows.Forms.DataGridViewTextBoxColumn acc;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton5;
     }
 }

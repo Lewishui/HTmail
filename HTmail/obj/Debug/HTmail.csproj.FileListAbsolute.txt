@@ -66,3 +66,4 @@ D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmMailTemplate.resou
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmBath_uploadTemplate.resources
 D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmAutosendCenter.resources
 F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\obj\Debug\HTmail.frmAutosendCenter.resources
+D:\Dev Project\autosendmail\HTmail\HTmail\obj\Debug\HTmail.frmTimeSelect.resources

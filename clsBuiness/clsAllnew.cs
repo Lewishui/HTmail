@@ -923,7 +923,7 @@ namespace clsBuiness
         public List<FromList_info> findFromList(string findtext)
         {
             findtext = sqlAddPCID(findtext);
-         //   findtext = "select * from FromList where mail='hzxdqwg01@vip.sina.com'And PCid  like '%178BFBFF00500F10%'";
+            //   findtext = "select * from FromList where mail='hzxdqwg01@vip.sina.com'And PCid  like '%178BFBFF00500F10%'";
             MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
             List<FromList_info> ClaimReport_Server = new List<FromList_info>();
 
@@ -1067,7 +1067,7 @@ namespace clsBuiness
         public int update_mailTemplateServer(string findtext)
         {
 
-          //  findtext = sqlAddPCID(findtext);
+            //  findtext = sqlAddPCID(findtext);
 
 
             int isrun = MySqlHelper.ExecuteSql(findtext);
@@ -1171,7 +1171,71 @@ namespace clsBuiness
             return MAPPINGResult;
 
         }
-       
+
+        public int create_timer_Server(Timer_info AddMAPResult)
+        {
+            string sql = "insert into Timer(time_start,time_end,TemplateID,mail,CCmail,formto,subject,body,acc ,groupID,PCid,status  ) values ('" + AddMAPResult.time_start + "','" + AddMAPResult.time_end + "','" + AddMAPResult.TemplateID + "','" + AddMAPResult.mail + "','" + AddMAPResult.CCmail + "','" + AddMAPResult.formto + "','" + AddMAPResult.subject + "','" + AddMAPResult.body + "','" + AddMAPResult.acc + "','" + AddMAPResult.groupID + "','" + PCid + "','" + AddMAPResult.status + "')";
+
+           // int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
+           int isrun = MySqlHelper.ExecuteSql(sql);
+
+            return isrun;
+        }
+
+        public List<Timer_info> findTimer(string findtext)
+        {
+
+
+            findtext = sqlAddPCID(findtext);
+            MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
+
+            List<Timer_info> ClaimReport_Server = new List<Timer_info>();
+
+            while (reader.Read())
+            {
+                Timer_info item = new Timer_info();
+
+                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                    item.time_start = Convert.ToString(reader.GetValue(1));
+                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                    item.time_end = reader.GetString(2);
+
+                if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
+                    item.TemplateID = reader.GetString(3);
+
+                if (reader.GetValue(4) != null && Convert.ToString(reader.GetValue(4)) != "")
+                    item.mail = reader.GetString(4);
+
+                if (reader.GetValue(5) != null && Convert.ToString(reader.GetValue(5)) != "")
+                    item.CCmail = reader.GetString(5);
+                if (reader.GetValue(6) != null && Convert.ToString(reader.GetValue(6)) != "")
+                    item.formto = reader.GetString(6);
+                if (reader.GetValue(7) != null && Convert.ToString(reader.GetValue(7)) != "")
+                    item.subject = reader.GetString(7);
+                if (reader.GetValue(8) != null && Convert.ToString(reader.GetValue(8)) != "")
+                    item.body = reader.GetString(8);
+
+                if (reader.GetValue(9) != null && Convert.ToString(reader.GetValue(9)) != "")
+                    item.acc = reader.GetString(9);
+
+                if (reader.GetValue(10) != null && Convert.ToString(reader.GetValue(10)) != "")
+                    item.groupID = reader.GetString(10);
+
+                if (reader.GetValue(11) != null && Convert.ToString(reader.GetValue(11)) != "")
+                    item.PCid = reader.GetString(11);
+
+
+                if (reader.GetValue(12) != null && Convert.ToString(reader.GetValue(12)) != "")
+                    item.status = reader.GetString(12);
+
+                ClaimReport_Server.Add(item);
+
+
+            }
+            return ClaimReport_Server;
+        }
+
+    
         #endregion
     }
 }

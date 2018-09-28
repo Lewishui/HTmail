@@ -29,35 +29,40 @@ namespace HTmail
         string path;
         List<string> filename = new List<string>();
         List<FromList_info> list_Server;
-        List<FromList_info> Addlist_Server;
+        public List<FromList_info> Addlist_Server;
         List<Addconnect_info> Add_Sendlist_Server;
         private bool isOneFinished = false;
         private DateTime StopTime;
         private DateTime strFileName;
-
+        private string accrualselecttime;
+        public List<Timer_info> Timer_Server;
+        public string ddd;
+        public int gotype;//选择当前页面还是  时间控件传进来的
+        public List<string> txValue = new List<string>();
         public frmSendpage()
         {
             InitializeComponent();
+            gotype = 0;
+
         }
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
             InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.GetCultureInfo("en-US"));
-          
+
             foreach (InputLanguage lang in InputLanguage.InstalledInputLanguages)
             {
-                
+
                 this.textBox1.Text += "\r\nName> " + lang.LayoutName + "\r\nCulture> " + lang.Culture.Name + "\r\n";
-            
-            
+
+
             }
             if (InputLanguage.DefaultInputLanguage.LayoutName.IndexOf("Keyboard") == -1 && InputLanguage.DefaultInputLanguage.Culture.Name.Equals("zh-CN"))
-                    
             {
-                
-                InputLanguage.CurrentInputLanguage = InputLanguage.DefaultInputLanguage; 
-            
-            
+
+                InputLanguage.CurrentInputLanguage = InputLanguage.DefaultInputLanguage;
+
+
             }
             else
             {
@@ -67,11 +72,6 @@ namespace HTmail
                     { InputLanguage.CurrentInputLanguage = lang; break; }
                 }
             }
-
-
-
-
-
 
             try
             {
@@ -91,7 +91,6 @@ namespace HTmail
                 if (blnBackGroundWorkIsOK)
                 {
 
-
                 }
             }
 
@@ -100,8 +99,6 @@ namespace HTmail
                 return;
                 throw ex;
             }
-
-
 
 
         }
@@ -113,7 +110,6 @@ namespace HTmail
             clsAllnew BusinessHelp = new clsAllnew();
 
             SendMail();
-
 
             DateTime FinishTime = DateTime.Now;
             TimeSpan s = DateTime.Now - oldDate;
@@ -163,7 +159,7 @@ namespace HTmail
             }
         }
 
-        private void SendMail()
+        public void SendMail()
         {
 
             bool istrue = true;
@@ -311,7 +307,10 @@ namespace HTmail
             string A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail\\sendto.txt";
 
             StreamWriter sw = new StreamWriter(A_Path);
-            sw.WriteLine(textBox1.Text);
+            if (gotype == 0)
+                sw.WriteLine(textBox1.Text);
+            else
+                sw.WriteLine(txValue[0]);
             sw.Flush();
             sw.Close();
 
@@ -319,14 +318,22 @@ namespace HTmail
             A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail\\ccto.txt";
 
             sw = new StreamWriter(A_Path);
-            sw.WriteLine(textBox5.Text);
+            if (gotype == 0)
+                sw.WriteLine(textBox5.Text);
+            else
+                sw.WriteLine(txValue[1]);
+
             sw.Flush();
             sw.Close();
 
             A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail\\fromto.txt";
 
             sw = new StreamWriter(A_Path);
-            sw.WriteLine(textBox2.Text);
+            if (gotype == 0)
+                sw.WriteLine(textBox2.Text);
+            else
+                sw.WriteLine(txValue[2]);
+
             sw.Flush();
             sw.Close();
 
@@ -334,7 +341,11 @@ namespace HTmail
             A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail\\subject.txt";
 
             sw = new StreamWriter(A_Path);
-            sw.WriteLine(textBox3.Text);
+            if (gotype == 0)
+                sw.WriteLine(textBox3.Text);
+            else
+                sw.WriteLine(txValue[3]);
+
             sw.Flush();
 
 
@@ -342,15 +353,33 @@ namespace HTmail
             A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail\\body.txt";
 
             sw = new StreamWriter(A_Path);
-            sw.WriteLine(textBox4.Text);
+
+            if (gotype == 0)
+                sw.WriteLine(textBox4.Text);
+            else
+                sw.WriteLine(txValue[4]);
+
             sw.Flush();
             sw.Close();
 
             A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail\\acc.txt";
 
             sw = new StreamWriter(A_Path);
-            for (int i = 0; i < filename.Count; i++)
-                sw.WriteLine(filename[i]);
+            if (gotype == 0)
+            {
+                for (int i = 0; i < filename.Count; i++)
+                    sw.WriteLine(filename[i]);
+            }
+            else
+            {
+                string[] temp1 = System.Text.RegularExpressions.Regex.Split(txValue[5], ",");
+
+                for (int i = 0; i < temp1.Length; i++)
+                {
+                    sw.WriteLine(temp1[i]);
+                }
+
+            }
             sw.Flush();
             sw.Close();
 
@@ -447,6 +476,50 @@ namespace HTmail
                 }
 
             }
+        }
+
+        private void toolStripDropDownButton4_Click(object sender, EventArgs e)
+        {
+            Timer_Server = new List<Timer_info>();
+
+            var form = new frmTimeSelect();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                DateTime _time = form.dateclose;
+                accrualselecttime = _time.ToString("yyyy/MM/dd/HH/mm").ToString();//2017/02
+            }
+            if (accrualselecttime == null || accrualselecttime == "")
+                return;
+
+            Timer_info item = new Timer_info();
+
+            item.time_start = accrualselecttime;
+
+            item.mail = textBox1.Text;
+            item.CCmail = textBox5.Text;
+            item.formto = textBox2.Text;
+            item.subject = textBox3.Text;
+            item.body = textBox4.Text;
+
+            item.status = "未发送";
+
+            for (int i = 0; i < filename.Count; i++)
+                if (i != 0)
+                    item.acc += "," + filename[i];
+                else
+                    item.acc += filename[i];
+
+            Timer_Server.Add(item);
+            ddd = "OK";
+
+            this.Close();
+
+        }
+
+        private void toolStripDropDownButton5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }
