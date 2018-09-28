@@ -246,8 +246,8 @@ namespace HTmail
 
                     }
                     #endregion
-
-                    bgWorker.ReportProgress(0, "发送中 :  " + i.ToString() + "/" + Addlist_Server.Count.ToString());
+                    if (gotype == 0)
+                        bgWorker.ReportProgress(0, "发送中 :  " + i.ToString() + "/" + Addlist_Server.Count.ToString());
 
                     if (fajianren != "" && fajianren.Contains("qq.com"))
                     {
@@ -372,11 +372,14 @@ namespace HTmail
             }
             else
             {
-                string[] temp1 = System.Text.RegularExpressions.Regex.Split(txValue[5], ",");
-
-                for (int i = 0; i < temp1.Length; i++)
+                if (txValue[5] != null)
                 {
-                    sw.WriteLine(temp1[i]);
+                    string[] temp1 = System.Text.RegularExpressions.Regex.Split(txValue[5], ",");
+
+                    for (int i = 0; i < temp1.Length; i++)
+                    {
+                        sw.WriteLine(temp1[i]);
+                    }
                 }
 
             }
