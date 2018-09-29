@@ -1176,8 +1176,8 @@ namespace clsBuiness
         {
             string sql = "insert into Timer(time_start,time_end,TemplateID,mail,CCmail,formto,subject,body,acc ,groupID,PCid,status  ) values ('" + AddMAPResult.time_start + "','" + AddMAPResult.time_end + "','" + AddMAPResult.TemplateID + "','" + AddMAPResult.mail + "','" + AddMAPResult.CCmail + "','" + AddMAPResult.formto + "','" + AddMAPResult.subject + "','" + AddMAPResult.body + "','" + AddMAPResult.acc + "','" + AddMAPResult.groupID + "','" + PCid + "','" + AddMAPResult.status + "')";
 
-           // int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
-           int isrun = MySqlHelper.ExecuteSql(sql);
+            // int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
+            int isrun = MySqlHelper.ExecuteSql(sql);
 
             return isrun;
         }
@@ -1194,6 +1194,11 @@ namespace clsBuiness
             while (reader.Read())
             {
                 Timer_info item = new Timer_info();
+
+
+                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                    item._id = Convert.ToString(reader.GetValue(0));
+
 
                 if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
                     item.time_start = Convert.ToString(reader.GetValue(1));
@@ -1235,7 +1240,7 @@ namespace clsBuiness
             return ClaimReport_Server;
         }
 
-    
+
         #endregion
     }
 }

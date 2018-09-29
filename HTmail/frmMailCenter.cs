@@ -12,6 +12,7 @@ using Microsoft.Win32;
 using System.Threading;
 using System.IO;
 using HT.DB;
+using clsBuiness;
 namespace HTmail
 {
     public partial class frmMailCenter : Form
@@ -24,11 +25,13 @@ namespace HTmail
         private bool IsRun = false;
 
 
+        clsAllnew BusinessHelp;
 
         public frmMailCenter()
         {
             InitializeComponent();
             NewMethod();
+            BusinessHelp = new clsAllnew();
 
         }
 
@@ -184,11 +187,19 @@ namespace HTmail
                     var Sendpageform = new frmSendpage();
                     Sendpageform.Addlist_Server = Addlist_Server;
                     Sendpageform.txValue = txValue;
-                    Sendpageform.gotype =1;
+                    Sendpageform.gotype = 1;
 
                     Sendpageform.SendMail();
+                    string conditions = "";
 
+                    if (item.status != null)
+                    {
+                        conditions += " status ='" + "已发送" + "'";
+                    }
 
+                    conditions = "update Timer set  " + conditions + " where _id = " + item._id + " ";
+
+                    int ISURN = BusinessHelp.update_mailTemplateServer(conditions);
 
 
                 }

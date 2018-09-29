@@ -381,7 +381,8 @@ namespace HTmail
                         sw.WriteLine(temp1[i]);
                     }
                 }
-
+                else
+                    sw.WriteLine("");
             }
             sw.Flush();
             sw.Close();
