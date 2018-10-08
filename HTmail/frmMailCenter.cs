@@ -23,17 +23,21 @@ namespace HTmail
         private Thread GetDataforRawDataThread;
         string adaewew;
         private bool IsRun = false;
-
+      
 
         clsAllnew BusinessHelp;
 
         public frmMailCenter()
         {
             InitializeComponent();
-            NewMethod();
             BusinessHelp = new clsAllnew();
 
+            NewMethod();
+ 
+
+         
         }
+
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {

@@ -1,0 +1,4 @@
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\obj\Release\clsBuiness.csprojResolveAssemblyReference.cache
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\obj\Release\Interop.ADODB.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\obj\Release\Interop.CDO.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\clsBuiness\obj\Release\clsBuiness.csproj.ResolveComReference.cache

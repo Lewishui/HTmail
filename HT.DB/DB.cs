@@ -96,4 +96,15 @@ namespace HT.DB
        
 
     }
+
+
+    public class softTime_info
+    {
+        public string _id { get; set; }//玩法种类
+
+        public string starttime { get; set; }//玩法种类
+        public string name { get; set; }//玩法种类
+        public string endtime { get; set; }//玩法种类
+    }
+
 }

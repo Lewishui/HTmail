@@ -48,6 +48,38 @@ namespace HTmail
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
+          //  输入法设置();
+            try
+            {
+
+                InitialBackGroundWorker();
+                bgWorker.DoWork += new DoWorkEventHandler(BSendMail);
+
+                bgWorker.RunWorkerAsync();
+
+                // 启动消息显示画面
+                frmMessageShow = new frmMessageShow(clsShowMessage.MSG_001,
+                                                    clsShowMessage.MSG_007,
+                                                    clsConstant.Dialog_Status_Disable);
+                frmMessageShow.ShowDialog();
+
+                // 数据读取成功后在画面显示
+                if (blnBackGroundWorkIsOK)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+                throw ex;
+            }
+
+
+        }
+
+        private void 输入法设置()
+        {
             InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.GetCultureInfo("en-US"));
 
             foreach (InputLanguage lang in InputLanguage.InstalledInputLanguages)
@@ -72,35 +104,6 @@ namespace HTmail
                     { InputLanguage.CurrentInputLanguage = lang; break; }
                 }
             }
-
-            try
-            {
-
-                InitialBackGroundWorker();
-                bgWorker.DoWork += new DoWorkEventHandler(BSendMail);
-
-                bgWorker.RunWorkerAsync();
-
-                // 启动消息显示画面
-                frmMessageShow = new frmMessageShow(clsShowMessage.MSG_001,
-                                                    clsShowMessage.MSG_007,
-                                                    clsConstant.Dialog_Status_Disable);
-                frmMessageShow.ShowDialog();
-
-                // 数据读取成功后在画面显示
-                if (blnBackGroundWorkIsOK)
-                {
-
-                }
-            }
-
-            catch (Exception ex)
-            {
-                return;
-                throw ex;
-            }
-
-
         }
         private void BSendMail(object sender, DoWorkEventArgs e)
         {
@@ -108,6 +111,7 @@ namespace HTmail
 
             //初始化信息
             clsAllnew BusinessHelp = new clsAllnew();
+            gotype = 0;
 
             SendMail();
 
@@ -163,106 +167,156 @@ namespace HTmail
         {
 
             bool istrue = true;
-
-            if (Addlist_Server != null && Addlist_Server.Count > 0)
+            #region 自动定时发信
+            if (gotype == 1)
             {
-                int i = 0;
-                foreach (FromList_info temp in Addlist_Server)
+                if (Addlist_Server != null && Addlist_Server.Count > 0)
                 {
-                    i++;
-
-
-                    if (temp.mail == null || temp.mail == "")
-                        continue;
-
-                    string strSelect = "select * from FromList where mail='" + temp.mail + "'";
-                    clsAllnew BusinessHelp = new clsAllnew();
-                    list_Server = new List<FromList_info>();
-                    list_Server = BusinessHelp.findFromList(strSelect);
-
-                    if (list_Server.Count == 0)
+                    int i = 0;
+                    foreach (FromList_info temp in Addlist_Server)
                     {
-                        MessageBox.Show("没有找到此发送人,请在发件人设置中维护其信息后再次尝试", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    string fajianren = "";
-                    wirite_txt();
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail";
-                    string dir = @"C:\Program Files (x86)\HTmail\System\\mail";
-                    CopyFolder(path, dir);
+                        i++;
 
-                    fajianren = temp.mail;
 
-                    #region 控制结束
+                        if (temp.mail == null || temp.mail == "")
+                            continue;
 
-                    Thread.Sleep(5000);
+                        //string strSelect = "select * from FromList where mail='" + temp.mail + "'";
+                        //clsAllnew BusinessHelp = new clsAllnew();
+                        //list_Server = new List<FromList_info>();
+                        //list_Server = BusinessHelp.findFromList(strSelect);
 
-                    //遍历所有查找到的进程
-                    isOneFinished = false;
-                    StopTime = DateTime.Now;
-                    istrue = false;
+                        Read_fajianren(temp.mail);
 
-                    while (!isOneFinished)
-                    {
-                        Process[] pro = Process.GetProcesses();//获取已开启的所有进程
 
-                        bool iscontains = false;
-                        for (int ii = 0; ii < pro.Length; ii++)
+
+                        if (list_Server.Count == 0)
                         {
-                            if (pro[ii].ProcessName.ToString().Contains("catch XL"))
-                            {
-                                iscontains = true;
-
-                                DateTime rq2 = DateTime.Now;  //结束时间
-                                TimeSpan ts = rq2 - StopTime;
-                                int timeTotal = ts.Minutes;
-                                if (timeTotal >= 20)
-                                {
-                                    //bgWorker1.ReportProgress(0, "系统错误，正在执行推出，请稍后自行检查数据源错误或运行环境问题！");
-                                    //pro[i].Kill();//结束进程
-                                    //isOneFinished = true;
-                                    //Application.Exit();
-                                }
-                            }
-                            else if (pro[ii].ProcessName.ToString().Contains("stop Q"))
-                            {
-                                iscontains = true;
-
-                                DateTime rq2 = DateTime.Now;  //结束时间
-                                TimeSpan ts = rq2 - StopTime;
-                                int timeTotal = ts.Minutes;
-                                if (timeTotal >= 20)
-                                {
-                                    //bgWorker1.ReportProgress(0, "系统错误，正在执行推出，请稍后自行检查数据源错误或运行环境问题！");
-                                    //pro[i].Kill();//结束进程
-                                    //isOneFinished = true;
-                                    //Application.Exit();
-                                }
-                            }
+                            MessageBox.Show("没有找到此发送人,请在发件人设置中维护其信息后再次尝试", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
-                        if (iscontains == false)
-                            isOneFinished = true;
+                        string fajianren = "";
+                        //wirite_txt();
+                        //string path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail";
+                        //string dir = @"C:\Program Files (x86)\HTmail\System\\mail";
+                        //CopyFolder(path, dir);
+
+                        //fajianren = temp.mail;
+                        fajianren = moveFolder(fajianren, temp.mail);
+
+                        #region 控制结束
+
+                        Thread.Sleep(5000);
+
+                        //遍历所有查找到的进程
+                        isOneFinished = false;
+                        StopTime = DateTime.Now;
+                        istrue = false;
+
+                        while (!isOneFinished)
+                        {
+                            Process[] pro = Process.GetProcesses();//获取已开启的所有进程
+
+                            bool iscontains = false;
+                            for (int ii = 0; ii < pro.Length; ii++)
+                            {
+                                if (pro[ii].ProcessName.ToString().Contains("catch XL"))
+                                {
+                                    iscontains = true;
+
+                                    DateTime rq2 = DateTime.Now;  //结束时间
+                                    TimeSpan ts = rq2 - StopTime;
+                                    int timeTotal = ts.Minutes;
+                                    if (timeTotal >= 20)
+                                    {
+                                        //bgWorker1.ReportProgress(0, "系统错误，正在执行推出，请稍后自行检查数据源错误或运行环境问题！");
+                                        //pro[i].Kill();//结束进程
+                                        //isOneFinished = true;
+                                        //Application.Exit();
+                                    }
+                                }
+                                else if (pro[ii].ProcessName.ToString().Contains("stop Q"))
+                                {
+                                    iscontains = true;
+
+                                    DateTime rq2 = DateTime.Now;  //结束时间
+                                    TimeSpan ts = rq2 - StopTime;
+                                    int timeTotal = ts.Minutes;
+                                    if (timeTotal >= 20)
+                                    {
+                                        //bgWorker1.ReportProgress(0, "系统错误，正在执行推出，请稍后自行检查数据源错误或运行环境问题！");
+                                        //pro[i].Kill();//结束进程
+                                        //isOneFinished = true;
+                                        //Application.Exit();
+                                    }
+                                }
+                            }
+                            if (iscontains == false)
+                                isOneFinished = true;
 
 
-                    }
-                    #endregion
-                    if (gotype == 0)
-                        bgWorker.ReportProgress(0, "发送中 :  " + i.ToString() + "/" + Addlist_Server.Count.ToString());
+                        }
+                        #endregion
+                        if (gotype == 0)
+                            bgWorker.ReportProgress(0, "发送中 :  " + i.ToString() + "/" + Addlist_Server.Count.ToString());
 
-                    if (fajianren != "" && fajianren.Contains("qq.com"))
-                    {
-
-                        string ZFCEPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ""), "");
-                        System.Diagnostics.Process.Start("stop Q.exe", ZFCEPath);
-                    }
-                    else if (fajianren != "" && fajianren.Contains("sina.com"))
-                    {
-                        string ZFCEPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ""), "");
-                        System.Diagnostics.Process.Start("catch XL.exe", ZFCEPath);
+                        user_winauto(fajianren);
                     }
                 }
 
+
             }
+            #endregion
+            #region 直接发信
+            else if (gotype == 0)
+            {
+                Read_fajianren(textBox2.Text);
+
+                if (list_Server.Count == 0)
+                {
+                    MessageBox.Show("没有找到此发送人,请在发件人设置中维护其信息后再次尝试", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string fajianren = "";
+                fajianren = moveFolder(fajianren, textBox2.Text);
+                user_winauto(fajianren);
+
+            }
+            #endregion
+        }
+
+        private static void user_winauto(string fajianren)
+        {
+            if (fajianren != "" && fajianren.Contains("qq.com"))
+            {
+
+                string ZFCEPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ""), "");
+                System.Diagnostics.Process.Start("stop Q.exe", ZFCEPath);
+            }
+            else if (fajianren != "" && fajianren.Contains("sina.com"))
+            {
+                string ZFCEPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ""), "");
+                System.Diagnostics.Process.Start("catch XL.exe", ZFCEPath);
+            }
+        }
+
+        private string moveFolder(string fajianren,string newfajianren)
+        {
+            wirite_txt();
+            string path = AppDomain.CurrentDomain.BaseDirectory + "System\\mail";
+            string dir = @"C:\Program Files (x86)\HTmail\System\\mail";
+            CopyFolder(path, dir);
+
+            fajianren = newfajianren ;
+            return fajianren;
+        }
+
+        private void Read_fajianren(string mail)
+        {
+            string strSelect = "select * from FromList where mail='" + mail + "'";
+            clsAllnew BusinessHelp = new clsAllnew();
+            list_Server = new List<FromList_info>();
+            list_Server = BusinessHelp.findFromList(strSelect);
         }
         public static void CopyFolder(string sourcePath, string destPath)
         {

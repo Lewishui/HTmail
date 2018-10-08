@@ -1,0 +1,5 @@
+F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\bin\Release\HT.DB.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\bin\Release\HT.DB.pdb
+F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\obj\Release\HT.DB.csprojResolveAssemblyReference.cache
+F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\obj\Release\HT.DB.dll
+F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\obj\Release\HT.DB.pdb

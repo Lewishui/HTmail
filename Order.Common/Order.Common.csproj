@@ -73,6 +73,7 @@
     <Compile Include="SortableBindingList.cs" />
     <Compile Include="SQLiteHelper.cs" />
     <Compile Include="WorkerArgument.cs" />
+    <Compile Include="NewMySqlHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
