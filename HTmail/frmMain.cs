@@ -97,7 +97,7 @@ namespace HTmail
             {
                 Microsoft.Win32.RegistryKey key;
                 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTmail.exe");
-                SetAutoRun(@filePath, true);
+                SetAutoRun(@filePath, false);
                 // MessageBox.Show("Set OK !");
             }
         }

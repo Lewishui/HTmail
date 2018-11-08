@@ -1,13 +1,1 @@
 512250428@qq.com
-Name> 中文(简体) - 美式键盘
-Culture> zh-CN
-
-Name> 美式键盘
-Culture> zh-CN
-
-Name> 美式键盘
-Culture> zh-CN
-
-Name> 美式键盘
-Culture> zh-CN
-
