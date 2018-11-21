@@ -19,6 +19,7 @@ namespace Order.Common
         string path = AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt";
         private static string[] fileText = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt");
         private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=Emailauto;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
+        private static string connstr2 = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
 
 
         #region 执行查询语句，返回MySqlDataReader
@@ -103,6 +104,38 @@ namespace Order.Common
         public static int ExecuteSql(string sql)
         {
             using (MySqlConnection conn = new MySqlConnection(connstr))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        int rows = cmd.ExecuteNonQuery();
+                        return rows;
+                    }
+                    catch (MySql.Data.MySqlClient.MySqlException e)
+                    {
+                        conn.Close();
+                        throw e;
+                    }
+                    finally
+                    {
+                        cmd.Dispose();
+                        conn.Close();
+                    }
+                }
+            }
+        }
+        public static int ExecuteSql2(string sql,int ti)
+        {
+            string link="";
+
+            if (ti == 1)
+                link = connstr;
+            else if (ti == 2)
+                link = connstr2;
+
+            using (MySqlConnection conn = new MySqlConnection(link))
             {
                 using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {

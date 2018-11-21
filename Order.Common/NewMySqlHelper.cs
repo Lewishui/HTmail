@@ -19,7 +19,7 @@ namespace Order.Common
 
         string path = AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt";
         private static string[] fileText = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt");
-        private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
+        private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True;default command timeout=20;Connection Timeout=5";//根据自己的实际
 
 
         #region 执行查询语句，返回MySqlDataReader
@@ -36,11 +36,12 @@ namespace Order.Common
 
             try
             {
-
+                cmd.CommandTimeout = 999;
+            
                 //Thread.Sleep(1000); 
                 if (connection.State != ConnectionState.Open)
                     connection.Open();
-                cmd.CommandTimeout = 999;
+                //  
                 myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 return myReader;
             }
@@ -369,6 +370,7 @@ namespace Order.Common
             }
             catch (MySqlException exception)
             {
+                connection.Open();
 
             }
             finally

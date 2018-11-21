@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsmytest.cs" />
     <Compile Include="DataGridViewForWs .cs">
       <SubType>Component</SubType>
     </Compile>
@@ -74,6 +75,12 @@
     <Compile Include="SQLiteHelper.cs" />
     <Compile Include="WorkerArgument.cs" />
     <Compile Include="NewMySqlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HT.DB\HT.DB.csproj">
+      <Project>{543b6fea-1892-4dac-962c-4e0a42119de7}</Project>
+      <Name>HT.DB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

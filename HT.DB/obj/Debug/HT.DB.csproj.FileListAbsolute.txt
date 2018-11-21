@@ -7,3 +7,7 @@ F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\bin\Debug\HT.DB.pdb
 F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\obj\Debug\HT.DB.dll
 F:\mysteap\Devpro\HTTPmail\HTmail\HT.DB\obj\Debug\HT.DB.pdb
 D:\Dev Project\autosendmail\HTmail\HT.DB\obj\Debug\HT.DB.csprojResolveAssemblyReference.cache
+D:\Devlop\自动化工具\HTmail\HT.DB\bin\Debug\HT.DB.dll
+D:\Devlop\自动化工具\HTmail\HT.DB\bin\Debug\HT.DB.pdb
+D:\Devlop\自动化工具\HTmail\HT.DB\obj\Debug\HT.DB.dll
+D:\Devlop\自动化工具\HTmail\HT.DB\obj\Debug\HT.DB.pdb

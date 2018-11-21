@@ -138,14 +138,14 @@
             // 发信模板ToolStripMenuItem
             // 
             this.发信模板ToolStripMenuItem.Name = "发信模板ToolStripMenuItem";
-            this.发信模板ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.发信模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.发信模板ToolStripMenuItem.Text = "发信模板";
             this.发信模板ToolStripMenuItem.Click += new System.EventHandler(this.发信模板ToolStripMenuItem_Click);
             // 
             // 定时发信ToolStripMenuItem
             // 
             this.定时发信ToolStripMenuItem.Name = "定时发信ToolStripMenuItem";
-            this.定时发信ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.定时发信ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.定时发信ToolStripMenuItem.Text = "定时发信";
             this.定时发信ToolStripMenuItem.Click += new System.EventHandler(this.定时发信ToolStripMenuItem_Click);
             // 
@@ -205,6 +205,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(60, 25);
             this.toolStripButton4.Text = "发送";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton5
             // 

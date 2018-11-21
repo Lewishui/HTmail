@@ -1240,31 +1240,14 @@ namespace clsBuiness
             return ClaimReport_Server;
         }
 
-        public List<softTime_info> findsoftTime(string findtext)
-        {
-        //    findtext = sqlAddPCID(findtext);
-            MySql.Data.MySqlClient.MySqlDataReader reader = NewMySqlHelper.ExecuteReader(findtext);
-            List<softTime_info> ClaimReport_Server = new List<softTime_info>();
-
-            while (reader.Read())
-            {
-                softTime_info item = new softTime_info();
-                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
-                    item._id = Convert.ToString(reader.GetValue(0));
-
-                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
-                    item.name = reader.GetString(1);
-                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
-                    item.starttime = reader.GetString(2);
-                if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
-                    item.endtime = reader.GetString(3);   
-         
-                ClaimReport_Server.Add(item);
-
-                //这里做数据处理....
-            }
-            return ClaimReport_Server;
-        }
+  
         #endregion
+        public void updateLoginTime_Server(List<clsuserinfo> AddMAPResult)
+        {
+            string sql = "update control_soft_time set denglushijian ='" + AddMAPResult[0].denglushijian.Trim() + "' where name ='" + AddMAPResult[0].name + "'";
+            int isrun = MySqlHelper.ExecuteSql2(sql,2);
+
+            return;
+        }
     }
 }

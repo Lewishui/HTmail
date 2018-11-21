@@ -13,6 +13,17 @@ namespace HT.DB
         public string PCid { get; set; }//玩法种类
   
     }
+    public class clsuserinfo
+    {
+        public string Order_id { get; set; }
+        public string name { get; set; }
+        public string password { get; set; }
+        public string Btype { get; set; }
+        public string denglushijian { get; set; }
+        public string Createdate { get; set; }
+        public string AdminIS { get; set; }
+        public string jigoudaima { get; set; }
+    }
     public class Addconnect_info
     {
         public string _id { get; set; }//玩法种类

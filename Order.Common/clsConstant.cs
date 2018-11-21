@@ -12,8 +12,8 @@ namespace Order.Common
 
 
         public const string RegEdit_Key_SoftWare = "SOFTWARE";
-        public const string RegEdit_Key_AMDAPE2E = "JNorder";
-        public const string RegEdit_Key_AMDAPE2E_ES = @"AMDAPE2E\JNorder";
+        public const string RegEdit_Key_AMDAPE2E = "YHAI";
+        public const string RegEdit_Key_AMDAPE2E_ES = @"AMDAPE2E\YHAI";
         public const string RegEdit_Key_User = "user";
         public const string RegEdit_Key_PassWord = "password";
         public const string RegEdit_Key_Date = "date";

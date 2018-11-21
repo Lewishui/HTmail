@@ -36,3 +36,22 @@ D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.dll
 D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.Linq.dll
 D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\Order.Common.pdb
 D:\Dev Project\autosendmail\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.xml
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\clsBuiness.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\clsBuiness.pdb
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\HT.DB.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\log4net.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\MySql.Data.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\MySql.Data.Entity.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\Order.Common.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\HT.DB.pdb
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\Order.Common.pdb
+D:\Devlop\自动化工具\HTmail\clsBuiness\bin\Debug\System.Data.SQLite.xml
+D:\Devlop\自动化工具\HTmail\clsBuiness\obj\Debug\clsBuiness.csprojResolveAssemblyReference.cache
+D:\Devlop\自动化工具\HTmail\clsBuiness\obj\Debug\Interop.ADODB.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\obj\Debug\Interop.CDO.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\obj\Debug\clsBuiness.csproj.ResolveComReference.cache
+D:\Devlop\自动化工具\HTmail\clsBuiness\obj\Debug\clsBuiness.dll
+D:\Devlop\自动化工具\HTmail\clsBuiness\obj\Debug\clsBuiness.pdb

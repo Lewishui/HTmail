@@ -38,6 +38,9 @@
     <ApplicationIcon>favic111on.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IrisSkin2">
+      <HintPath>..\Reference\IrisSkin2.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Reference\log4net.dll</HintPath>
@@ -57,8 +60,17 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\Reference\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAboutBox.Designer.cs">
+      <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddconnectGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,12 @@
     <Compile Include="frmFromReception.Designer.cs">
       <DependentUpon>frmFromReception.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +124,12 @@
     </Compile>
     <Compile Include="frmMailCenter.Designer.cs">
       <DependentUpon>frmMailCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQQSend_qun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQQSend_qun.Designer.cs">
+      <DependentUpon>frmQQSend_qun.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReception.cs">
       <SubType>Form</SubType>
@@ -163,6 +187,9 @@
     <Compile Include="frmBath_uploadTemplate.Designer.cs">
       <DependentUpon>frmBath_uploadTemplate.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAboutBox.resx">
+      <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddconnectGroup.resx">
       <DependentUpon>frmAddconnectGroup.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +205,9 @@
     <EmbeddedResource Include="frmFromReception.resx">
       <DependentUpon>frmFromReception.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMailCenter.resx">
       <DependentUpon>frmMailCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQQSend_qun.resx">
+      <DependentUpon>frmQQSend_qun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReception.resx">
       <DependentUpon>frmReception.cs</DependentUpon>
@@ -268,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favic111on.ico" />
+    <None Include="Resources\psd.jpg" />
     <None Include="Resources\newbookChecktb.jpg" />
     <None Include="Resources\exittb.jpg" />
     <None Include="Resources\save.jpg" />
