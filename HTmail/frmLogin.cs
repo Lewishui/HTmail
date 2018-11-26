@@ -31,13 +31,14 @@ namespace HTmail
         List<string> messages;
         //要显示信息的下标索引
         int index = 0;
-
+        clsAllnew BusinessHelp;
 
         public frmLogin()
         {
             InitializeComponent();
 
             aboutbox = new frmAboutBox();
+              BusinessHelp = new clsAllnew();
 
             InitialSystemInfo();
             se = new Sunisoft.IrisSkin.SkinEngine();
@@ -173,10 +174,7 @@ namespace HTmail
                 bool istue = buiness.checkname();
 
                 if (istue == true)
-                {
-                    this.WindowState = FormWindowState.Maximized;
-                    if (chkSaveInfo.Checked == true)
-                        saveUserAndPassword();
+                {  
                     #region 更新登录时间
                     List<clsuserinfo> userlist_Server = new List<clsuserinfo>();
                     clsuserinfo item = new clsuserinfo();
@@ -186,10 +184,13 @@ namespace HTmail
 
 
                     userlist_Server.Add(item);
-                    clsAllnew BusinessHelp = new clsAllnew();
-
+                  
                     BusinessHelp.updateLoginTime_Server(userlist_Server);
                     #endregion
+                    this.WindowState = FormWindowState.Maximized;
+                    if (chkSaveInfo.Checked == true)
+                        saveUserAndPassword();
+                 
                     this.WindowState = FormWindowState.Maximized;
                     tsbLogin.Text = "登录成功";
 
@@ -205,7 +206,7 @@ namespace HTmail
             }
             catch (Exception ex)
             {
-                MessageBox.Show("登录失败" + ex, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("登录失败,请检查网络是否畅通并重试\r\n" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
                 throw ex;

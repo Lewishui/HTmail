@@ -19,8 +19,10 @@ namespace Order.Common
 
         string path = AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt";
         private static string[] fileText = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt");
-        private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True;default command timeout=20;Connection Timeout=5";//根据自己的实际
+        private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True;default command timeout=10;Connection Timeout=10";//根据自己的实际
 
+        public MySqlCommand newcmd;
+        public MySqlConnection newconnection;
 
         #region 执行查询语句，返回MySqlDataReader
         /// <summary>
@@ -32,16 +34,19 @@ namespace Order.Common
         {
             MySqlConnection connection = new MySqlConnection(connstr);
             MySqlCommand cmd = new MySqlCommand(sqlString, connection);
+           
             MySqlDataReader myReader = null;
 
             try
             {
-                cmd.CommandTimeout = 999;
-            
+                // 
+                //cmd.Connection.ConnectionTimeout = 999;
+
                 //Thread.Sleep(1000); 
                 if (connection.State != ConnectionState.Open)
                     connection.Open();
-                //  
+                // 
+                cmd.CommandTimeout = int.MaxValue;
                 myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 return myReader;
             }
@@ -52,11 +57,14 @@ namespace Order.Common
             }
             finally
             {
+               
                 if (myReader == null)
                 {
                     cmd.Dispose();
                     connection.Close();
                 }
+           
+
             }
         }
         #endregion

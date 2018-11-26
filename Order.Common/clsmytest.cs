@@ -82,6 +82,7 @@ namespace Order.Common
 
                 //这里做数据处理....
             }
+           // cmd.Dispose();
             return ClaimReport_Server;
         }
     }

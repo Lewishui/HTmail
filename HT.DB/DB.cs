@@ -117,5 +117,18 @@ namespace HT.DB
         public string name { get; set; }//玩法种类
         public string endtime { get; set; }//玩法种类
     }
+    public class clsQQquninfo
+    {
+        public string Order_id { get; set; }
+        public string qun_name { get; set; }
+        public string send_body { get; set; }
+        public string  is_timer{ get; set; }
+        public string send_time { get; set; }
+        public string mark1 { get; set; }
+        public string mark2 { get; set; }
+        public string mark3 { get; set; }
+        public string mark4 { get; set; }
+        public string mark5 { get; set; }
 
+    }
 }

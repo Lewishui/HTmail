@@ -13,13 +13,14 @@ namespace Order.Common
     {
         //private static string connstr = @"server=localhost;uid=root;pwd=121535;database=tem;charset=utf8";
         //private static string connstr = @"Host=127.0.0.1;UserName=root;Password=drpassword;Database=watermonitor;Port=3406;CharSet=utf8;Allow Zero Datetime=true";
-   //     private static string connstr = "server=qdm183517594.my3w.com;user=qdm183517594;password=lyh07910;database=qdm183517594_db;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
+        //     private static string connstr = "server=qdm183517594.my3w.com;user=qdm183517594;password=lyh07910;database=qdm183517594_db;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
 
 
         string path = AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt";
         private static string[] fileText = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt");
-        private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=Emailauto;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
-        private static string connstr2 = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True";//根据自己的实际
+        private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=Emailauto;Convert Zero Datetime=True;Allow Zero Datetime=True;Connection Timeout=2880000";//根据自己的实际
+        private static string connstr2 = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True;default command timeout=10;Connection Timeout=10";//根据自己的实际
+        // private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True;default command timeout=10;Connection Timeout=10";//根据自己的实际
 
 
         #region 执行查询语句，返回MySqlDataReader
@@ -33,13 +34,13 @@ namespace Order.Common
             MySqlConnection connection = new MySqlConnection(connstr);
             MySqlCommand cmd = new MySqlCommand(sqlString, connection);
             MySqlDataReader myReader = null;
-         
+
             try
             {
-                
+
                 //Thread.Sleep(1000); 
-                if (connection.State != ConnectionState.Open) 
-                connection.Open();
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
                 cmd.CommandTimeout = 999;
                 myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 return myReader;
@@ -51,7 +52,7 @@ namespace Order.Common
             }
             finally
             {
-               if (myReader == null)
+                if (myReader == null)
                 {
                     cmd.Dispose();
                     connection.Close();
@@ -109,7 +110,9 @@ namespace Order.Common
                 {
                     try
                     {
+                        cmd.CommandTimeout = int.MaxValue;
                         conn.Open();
+
                         int rows = cmd.ExecuteNonQuery();
                         return rows;
                     }
@@ -126,9 +129,9 @@ namespace Order.Common
                 }
             }
         }
-        public static int ExecuteSql2(string sql,int ti)
+        public static int ExecuteSql2(string sql, int ti)
         {
-            string link="";
+            string link = "";
 
             if (ti == 1)
                 link = connstr;
@@ -141,7 +144,8 @@ namespace Order.Common
                 {
                     try
                     {
-                        conn.Open();
+                        if (conn.State != ConnectionState.Open)
+                            conn.Open();
                         int rows = cmd.ExecuteNonQuery();
                         return rows;
                     }

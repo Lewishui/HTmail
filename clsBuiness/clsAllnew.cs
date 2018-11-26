@@ -1,6 +1,7 @@
 ﻿using HT.DB;
 using ISR_System;
 using mshtml;
+
 using Order.Common;
 using System;
 using System.Collections.Generic;
@@ -68,7 +69,7 @@ namespace clsBuiness
         private string dataSource = "H.sqlite";
         string newsth;
         string PCid;
-
+ 
         public clsAllnew()
         {
             newsth = AppDomain.CurrentDomain.BaseDirectory + "\\" + dataSource;
@@ -1246,8 +1247,78 @@ namespace clsBuiness
         {
             string sql = "update control_soft_time set denglushijian ='" + AddMAPResult[0].denglushijian.Trim() + "' where name ='" + AddMAPResult[0].name + "'";
             int isrun = MySqlHelper.ExecuteSql2(sql,2);
-
+          //  int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
+          
             return;
+        }
+        public int create_QQqun_Server(List<clsQQquninfo> AddMAPResult)
+        {
+            string sql = "insert into netlist(qun_name,send_body,is_timer,send_time,mark1,mark2,mark3,mark4,mark5) values ('" + AddMAPResult[0].qun_name + "','" + AddMAPResult[0].send_body + "','" + AddMAPResult[0].is_timer + "','" + AddMAPResult[0].send_time + "','" + AddMAPResult[0].mark1 + "','" + AddMAPResult[0].mark2 + "','" + AddMAPResult[0].mark3 + "','" + AddMAPResult[0].mark4 + "','" + AddMAPResult[0].mark5+ "')";
+
+            int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
+          //  int isrun = MySqlHelper.ExecuteSql(sql);
+
+            return isrun;
+        }
+        public List<clsQQquninfo> findQQqun(string findtext)
+        {
+            //findtext = sqlAddPCID(findtext);
+          //  MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext);
+
+
+            SQLiteConnection dbConn = new SQLiteConnection("Data Source=" + dataSource);
+
+            dbConn.Open();
+            SQLiteCommand dbCmd = dbConn.CreateCommand();
+            dbCmd.CommandText = findtext;
+
+            DbDataReader reader = SQLiteHelper.ExecuteReader("Data Source=" + newsth, dbCmd);
+
+
+            List<clsQQquninfo> ClaimReport_Server = new List<clsQQquninfo>();
+
+            while (reader.Read())
+            {
+                clsQQquninfo item = new clsQQquninfo();
+                if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                    item.Order_id = Convert.ToString(reader.GetValue(0));
+
+                if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                    item.qun_name = reader.GetString(1);
+                if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                    item.send_body = reader.GetString(2);
+                if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
+                    item.is_timer = reader.GetString(3);
+                if (reader.GetValue(4) != null && Convert.ToString(reader.GetValue(4)) != "")
+                    item.send_time = reader.GetString(4);
+                if (reader.GetValue(5) != null && Convert.ToString(reader.GetValue(5)) != "")
+                    item.mark1 = reader.GetString(5);
+                if (reader.GetValue(6) != null && Convert.ToString(reader.GetValue(6)) != "")
+                    item.mark2 = reader.GetString(6);
+                if (reader.GetValue(7) != null && Convert.ToString(reader.GetValue(7)) != "")
+                    item.mark3 = reader.GetString(7);
+
+
+                if (reader.GetValue(8) != null && Convert.ToString(reader.GetValue(8)) != "")
+                    item.mark4 = reader.GetString(8);
+
+                if (reader.GetValue(9) != null && Convert.ToString(reader.GetValue(9)) != "")
+                    item.mark5= reader.GetString(9);
+
+                ClaimReport_Server.Add(item);
+
+                //这里做数据处理....
+            }
+            return ClaimReport_Server;
+        }
+        public int deleteQQqun(string name)
+        {
+            string sql2 = "delete from netlist where   Order_id='" + name + "'";
+            //int isrun = MySqlHelper.ExecuteSql(sql2);
+            int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql2, CommandType.Text, null);
+       
+            return isrun;
+
         }
     }
 }

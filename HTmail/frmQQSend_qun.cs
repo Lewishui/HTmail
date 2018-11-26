@@ -1,4 +1,5 @@
 ﻿using clsBuiness;
+using HT.DB;
 using Order.Common;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace HTmail
         private bool blnBackGroundWorkIsOK = false;
         //后加的后台属性显
         private bool backGroundRunResult;
+        int rowcount;
 
         private bool isOneFinished = false;
         private DateTime StopTime;
@@ -32,6 +34,10 @@ namespace HTmail
         private Thread GetDataforRawDataThread;
         string adaewew;
         private bool IsRun = false;
+        List<clsQQquninfo> OrderQUNlist_Server;
+        int comboxi;
+        string comboxiname;
+        clsAllnew BusinessHelp;
 
         private void TimeControl(object sender, EventArgs e)
         {
@@ -56,8 +62,8 @@ namespace HTmail
             bool istrue = true;
             int dddindex = 1;
             if (listView1.Items.Count > 0)
-            {
-                foreach (ListViewItem item in this.listView1.Items)
+            { 
+                foreach (ListViewItem item in listView1.Items)
                 {
                     if (item.SubItems[2].Text == "是")
                     {
@@ -80,6 +86,7 @@ namespace HTmail
 
             //免费各类广告群   送大礼啦
             //Excel有偿做自动化工具   送大礼啦
+            BusinessHelp = new clsAllnew();
 
             this.WindowState = FormWindowState.Normal;
             this.FormBorderStyle = FormBorderStyle.Sizable;
@@ -87,6 +94,8 @@ namespace HTmail
             this.Left = 0;
             //this.Width = Screen.PrimaryScreen.WorkingArea.Width;
             //this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+
+            InitializeDataSource();
             NewMethod();
 
         }
@@ -120,6 +129,29 @@ namespace HTmail
             li.SubItems.Add(comboBox1.Text);
             li.SubItems.Add(accrualselecttime);
             listView1.Items.Add(li);
+            List<clsQQquninfo> addOrderQUNlist_Server = new List<clsQQquninfo>();
+
+            clsQQquninfo temp = new clsQQquninfo();
+
+            temp.qun_name = textBox2.Text;
+            temp.send_body = textBox3.Text;
+            temp.is_timer = comboBox1.Text;
+            temp.send_time = accrualselecttime;
+
+            OrderQUNlist_Server.Add(temp);
+            addOrderQUNlist_Server.Add(temp);
+
+            int isok = BusinessHelp.create_QQqun_Server(addOrderQUNlist_Server);
+
+            if (isok != 1)
+            {
+                MessageBox.Show("保存失败，请检查录入信息是否有误！");
+
+
+
+            }
+            InitializeDataSource();
+        
         }
         private void InitialBackGroundWorker()
         {
@@ -386,5 +418,85 @@ namespace HTmail
             }
         }
 
+        private void 删除本条ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //var oids = GetOrderIdsBySelectedGridCell();
+            BusinessHelp.deleteQQqun(OrderQUNlist_Server[comboxi].Order_id);
+
+            OrderQUNlist_Server.RemoveAt(comboxi);
+
+            // filename.RemoveAt(comboxi);
+            listView1.Items.RemoveAt(comboxi);
+            listView1.Items.Clear();
+
+
+            InitializeDataSource();
+
+
+        }
+        private void InitializeDataSource()
+        {
+            OrderQUNlist_Server = new List<clsQQquninfo>();
+            string strSelect = "select * from netlist";
+
+            OrderQUNlist_Server = BusinessHelp.findQQqun(strSelect);
+            this.listView1.Items.Clear();
+          
+            int Index = 1;
+            foreach (clsQQquninfo item in OrderQUNlist_Server)
+            {
+                {
+                    ListViewItem li = new ListViewItem();
+                    li.SubItems[0].Text = item.qun_name;
+                    li.SubItems.Add(item.send_body);
+                    li.SubItems.Add(item.is_timer);
+                    li.SubItems.Add(item.send_time);
+                    listView1.Items.Add(li);
+
+                    Index++;
+                }
+            }
+
+
+        }
+        private List<long> GetOrderIdsBySelectedGridCell()
+        {
+
+            //List<long> order_ids = new List<long>();
+            ////var rows = GetSelectedRowsBySelectedCells(dataGridView1);
+            //foreach (DataGridViewRow row in rows)
+            //{
+            //    var Diningorder = row.DataBoundItem as Addconnect_info;
+            //    order_ids.Add((long)Convert.ToInt32(Diningorder._id));
+            //}
+
+            //return order_ids;
+            return null;
+
+        }
+        private IEnumerable<DataGridViewRow> GetSelectedRowsBySelectedCells(DataGridView dgv)
+        {
+            List<DataGridViewRow> rows = new List<DataGridViewRow>();
+            foreach (DataGridViewCell cell in dgv.SelectedCells)
+            {
+                rows.Add(cell.OwningRow);
+
+            }
+            rowcount = dgv.SelectedCells.Count;
+
+            return rows.Distinct();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                int ddd = listView1.SelectedIndices[0];
+                //   ShowImage(dailyResult[this.listView1.SelectedItems[0].Index].mark1);
+                comboxi = ddd;
+                comboxiname = OrderQUNlist_Server[this.listView1.SelectedItems[0].Index].qun_name.ToString();
+
+            }
+        }
     }
 }

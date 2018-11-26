@@ -50,9 +50,11 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.删除本条ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,8 +133,10 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除本条ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 26);
             // 
             // pictureBox1
             // 
@@ -215,6 +219,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(12, 123);
@@ -223,6 +228,12 @@
             this.listView1.TabIndex = 15;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "发送时间";
+            this.columnHeader4.Width = 100;
             // 
             // notifyIcon1
             // 
@@ -240,10 +251,12 @@
             this.dateTimePicker1.TabIndex = 29;
             this.dateTimePicker1.Visible = false;
             // 
-            // columnHeader4
+            // 删除本条ToolStripMenuItem
             // 
-            this.columnHeader4.Text = "发送时间";
-            this.columnHeader4.Width = 100;
+            this.删除本条ToolStripMenuItem.Name = "删除本条ToolStripMenuItem";
+            this.删除本条ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除本条ToolStripMenuItem.Text = "删除本条";
+            this.删除本条ToolStripMenuItem.Click += new System.EventHandler(this.删除本条ToolStripMenuItem_Click);
             // 
             // frmQQSend_qun
             // 
@@ -271,6 +284,7 @@
             this.Text = "模拟人工QQ群->发信";
             this.Load += new System.EventHandler(this.frmQQSend_qun_Load);
             this.SizeChanged += new System.EventHandler(this.frmQQSend_qun_SizeChanged);
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,5 +316,6 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ToolStripMenuItem 删除本条ToolStripMenuItem;
     }
 }
