@@ -271,6 +271,16 @@ namespace HTmail.Properties {
         }
         
         /// <summary>
+        ///   查找类似 群名称 我要发的信息 发送时间（格式2018.11.28）
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string Tel {
+            get {
+                return ResourceManager.GetString("Tel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap touxiang {

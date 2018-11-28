@@ -46,8 +46,9 @@ namespace Order.Common
                 if (connection.State != ConnectionState.Open)
                     connection.Open();
                 // 
-                cmd.CommandTimeout = int.MaxValue;
+                //cmd.CommandTimeout = int.MaxValue;
                 myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                cmd.Parameters.Clear();
                 return myReader;
             }
             catch (System.Data.SqlClient.SqlException e)

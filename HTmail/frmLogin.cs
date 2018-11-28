@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,13 +33,17 @@ namespace HTmail
         //要显示信息的下标索引
         int index = 0;
         clsAllnew BusinessHelp;
+        private System.Timers.Timer timerAlter_new;
+        private bool IsRun = false;
+        private Thread GetDataforRawDataThread;
+        List<clsalter_message> alter_Server;
 
         public frmLogin()
         {
             InitializeComponent();
 
             aboutbox = new frmAboutBox();
-              BusinessHelp = new clsAllnew();
+            BusinessHelp = new clsAllnew();
 
             InitialSystemInfo();
             se = new Sunisoft.IrisSkin.SkinEngine();
@@ -49,9 +54,11 @@ namespace HTmail
             ProcessLogger.Fatal("login" + DateTime.Now.ToString());
             string path = AppDomain.CurrentDomain.BaseDirectory + "System\\IP.txt";
 
-            
+
             messages = new List<string>();
             messages.Add("云合未来计算机技术有限公司人工智能系统  " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+            NewMethod();
 
             timer1.Interval = 12000;
             timer1.Start();
@@ -61,11 +68,57 @@ namespace HTmail
         void timer1_Tick(object sender, EventArgs e)
         {
             //滚动显示
-            index = (index + 1) % messages.Count;
-            //toolStripLabel9.Text = messages[index];
-            this.scrollingText1.ScrollText = messages[index];
+            if (alter_Server.Count > 0 )
+            {
+                index = (index + 1) % alter_Server.Count;
+                //toolStripLabel9.Text = messages[index];
+                this.scrollingText1.ScrollText = alter_Server[index].text;
+            }
+            else
+            {
+                index = (index + 1) % messages.Count;
+                //toolStripLabel9.Text = messages[index];
+                this.scrollingText1.ScrollText = messages[index];
+
+
+            }
 
         }
+        private void NewMethod()
+        {
+            timerAlter_new = new System.Timers.Timer(6666);
+            timerAlter_new.Elapsed += new System.Timers.ElapsedEventHandler(TimeControl);
+            timerAlter_new.AutoReset = true;
+            timerAlter_new.Start();
+        }
+        private void TimeControl(object sender, EventArgs e)
+        {
+            if (!IsRun)
+            {
+                IsRun = true;
+                GetDataforRawDataThread = new Thread(TimeMethod);
+                GetDataforRawDataThread.Start();
+            }
+        }
+        private void TimeMethod()
+        {
+            bool istrue = true;
+            int dddindex = 1;
+            alter_Server = new List<clsalter_message>();
+            string strSelect = "select * from alter_message";
+
+            alter_Server = BusinessHelp.find_alter_message(strSelect);
+
+            IsRun = false;
+        }
+        void timer2_Tick(object sender, EventArgs e)
+        {
+
+        }
+        //alter_message
+
+
+
         private void InitialSystemInfo()
         {
             #region 初始化配置
@@ -174,7 +227,7 @@ namespace HTmail
                 bool istue = buiness.checkname();
 
                 if (istue == true)
-                {  
+                {
                     #region 更新登录时间
                     List<clsuserinfo> userlist_Server = new List<clsuserinfo>();
                     clsuserinfo item = new clsuserinfo();
@@ -184,13 +237,13 @@ namespace HTmail
 
 
                     userlist_Server.Add(item);
-                  
+
                     BusinessHelp.updateLoginTime_Server(userlist_Server);
                     #endregion
                     this.WindowState = FormWindowState.Maximized;
                     if (chkSaveInfo.Checked == true)
                         saveUserAndPassword();
-                 
+
                     this.WindowState = FormWindowState.Maximized;
                     tsbLogin.Text = "登录成功";
 
@@ -219,12 +272,12 @@ namespace HTmail
             toolStrip1.Visible = false;
             if (frmQQSend_qun == null)
             {
-                frmQQSend_qun = new frmQQSend_qun( );
+                frmQQSend_qun = new frmQQSend_qun();
                 frmQQSend_qun.FormClosed += new FormClosedEventHandler(FrmOMS_FormClosed);
             }
             if (frmQQSend_qun == null)
             {
-                frmQQSend_qun = new frmQQSend_qun( );
+                frmQQSend_qun = new frmQQSend_qun();
             }
             frmQQSend_qun.Show(this.dockPanel2);
         }

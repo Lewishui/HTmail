@@ -1320,5 +1320,52 @@ namespace clsBuiness
             return isrun;
 
         }
+        public List<clsalter_message> find_alter_message(string findtext)
+        {
+           // findtext = sqlAddPCID(findtext);
+
+            MySqlHelper.ti = 2;
+
+            MySql.Data.MySqlClient.MySqlDataReader reader = MySqlHelper.ExecuteReader(findtext,null);
+            //int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
+      
+            List<clsalter_message> ClaimReport_Server = new List<clsalter_message>();
+            if (reader != null)
+            {
+                while (reader.Read())
+                {
+                    clsalter_message item = new clsalter_message();
+                    if (reader.GetValue(0) != null && Convert.ToString(reader.GetValue(0)) != "")
+                        item._id = Convert.ToString(reader.GetValue(0));
+
+                    if (reader.GetValue(1) != null && Convert.ToString(reader.GetValue(1)) != "")
+                        item.project_id = reader.GetString(1);
+                    if (reader.GetValue(2) != null && Convert.ToString(reader.GetValue(2)) != "")
+                        item.project_name = reader.GetString(2);
+                    if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
+                        item.text = reader.GetString(3);
+                    if (reader.GetValue(4) != null && Convert.ToString(reader.GetValue(4)) != "")
+                        item.mark1 = reader.GetString(4);
+                    if (reader.GetValue(5) != null && Convert.ToString(reader.GetValue(5)) != "")
+                        item.mark2 = reader.GetString(5);
+                    if (reader.GetValue(6) != null && Convert.ToString(reader.GetValue(6)) != "")
+                        item.mark3 = reader.GetString(6);
+                    if (reader.GetValue(7) != null && Convert.ToString(reader.GetValue(7)) != "")
+                        item.mark4 = reader.GetString(7);
+
+
+                    if (reader.GetValue(8) != null && Convert.ToString(reader.GetValue(8)) != "")
+                        item.mark5 = reader.GetString(8);
+
+
+                    ClaimReport_Server.Add(item);
+
+                    //这里做数据处理....
+                }
+                reader.Close();
+            }
+            return ClaimReport_Server;
+        }
+   
     }
 }

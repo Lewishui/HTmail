@@ -22,6 +22,7 @@ namespace Order.Common
         private static string connstr2 = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True;default command timeout=10;Connection Timeout=10";//根据自己的实际
         // private static string connstr = "server=" + fileText[0] + ";user=root;password=Lyh07910;database=soft_time;Convert Zero Datetime=True;Allow Zero Datetime=True;default command timeout=10;Connection Timeout=10";//根据自己的实际
 
+        public static int ti;
 
         #region 执行查询语句，返回MySqlDataReader
         /// <summary>
@@ -41,8 +42,9 @@ namespace Order.Common
                 //Thread.Sleep(1000); 
                 if (connection.State != ConnectionState.Open)
                     connection.Open();
-                cmd.CommandTimeout = 999;
+                //cmd.CommandTimeout = 999;
                 myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                cmd.Parameters.Clear();
                 return myReader;
             }
             catch (System.Data.SqlClient.SqlException e)
@@ -70,12 +72,25 @@ namespace Order.Common
         /// <returns></returns>
         public static MySqlDataReader ExecuteReader(string sqlString, params MySqlParameter[] cmdParms)
         {
-            MySqlConnection connection = new MySqlConnection(connstr);
+
+            string link = "";
+
+            if (ti == 1)
+                link = connstr;
+            else if (ti == 2)
+                link = connstr2;
+
+            MySqlConnection connection = new MySqlConnection(link);
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader myReader = null;
             try
             {
                 PrepareCommand(cmd, connection, null, sqlString, cmdParms);
+                if (cmd.Connection==null||cmd.Connection.State != ConnectionState.Open)
+                {
+                    return null;
+
+                }
                 myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 cmd.Parameters.Clear();
                 return myReader;
@@ -353,7 +368,15 @@ namespace Order.Common
         {
             if (conn.State != ConnectionState.Open)
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception)
+                {
+                    return;
+                    throw;
+                }
             }
             cmd.Connection = conn;
             cmd.CommandText = cmdText;

@@ -108,3 +108,5 @@ D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\WeifenLuo.WinFormsUI.Docking.d
 D:\Devlop\自动化工具\HTmail\HTmail\obj\Debug\HTmail.frmLogin.resources
 D:\Devlop\自动化工具\HTmail\HTmail\obj\Debug\HTmail.frmAboutBox.resources
 D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\IrisSkin2.dll
+D:\Devlop\自动化工具\HTmail\HTmail\obj\Debug\HTmail.frmImportTXT.resources
+D:\Devlop\自动化工具\HTmail\HTmail\obj\Debug\HTmail.ResourceFile.resources

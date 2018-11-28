@@ -131,4 +131,17 @@ namespace HT.DB
         public string mark5 { get; set; }
 
     }
+    public class clsalter_message
+    {
+        public string _id { get; set; }
+        public string project_id { get; set; }
+        public string project_name { get; set; }
+        public string text { get; set; }
+        public string mark1 { get; set; }
+        public string mark2 { get; set; }
+        public string mark3 { get; set; }
+        public string mark4 { get; set; }
+        public string mark5 { get; set; }
+
+    }
 }

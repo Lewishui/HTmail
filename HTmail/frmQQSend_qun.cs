@@ -63,19 +63,19 @@ namespace HTmail
             int dddindex = 1;
             if (listView1.Items.Count > 0)
             { 
-                foreach (ListViewItem item in listView1.Items)
-                {
-                    if (item.SubItems[2].Text == "是")
-                    {
-                        if (DateTime.Now.ToString("yyyy/MM/dd/HH/mm") == item.SubItems[3].Text)
-                        {
+                //foreach (ListViewItem item in listView1.Items)
+                //{
+                //    if (item.SubItems[2].Text == "是")
+                //    {
+                //        if (DateTime.Now.ToString("yyyy/MM/dd/HH/mm") == item.SubItems[3].Text)
+                //        {
 
-                            istrue = mainSend(istrue, item);
-                        }
-                    }
+                //            istrue = mainSend(istrue, item);
+                //        }
+                //    }
 
 
-                }
+                //}
             }
 
 
@@ -497,6 +497,20 @@ namespace HTmail
                 comboxiname = OrderQUNlist_Server[this.listView1.SelectedItems[0].Index].qun_name.ToString();
 
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var form = new frmImportTXT();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                InitializeDataSource();
+
+
+            }
+
+            
         }
     }
 }
