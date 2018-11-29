@@ -10,8 +10,8 @@ namespace Order.Common
 {
     public class clsmytest
     {
-
-        public  bool checkname()
+        public List<softTime_info> list_Server;
+        public  bool checkname(string user,string pass)
         {
             #region Noway
             //bool success = NewMySqlHelper.DbConnectable();
@@ -21,9 +21,9 @@ namespace Order.Common
             //    MessageBox.Show("系统网络异常,请保持网络畅通或联系开发人员 !");
             //    return;
             //}
-
-            string strSelect = "select * from control_soft_time where name='" + "QQSend01" + "'";
-            List<softTime_info> list_Server = new List<softTime_info>();
+           
+            string strSelect = "select * from control_soft_time where name='" + user + "'"+ " And password = '" + pass + "'";;
+            list_Server = new List<softTime_info>();
             list_Server = findsoftTime(strSelect);
             DateTime oldDate = DateTime.Now;
             DateTime dt3;
@@ -77,6 +77,33 @@ namespace Order.Common
                     item.starttime = reader.GetString(2);
                 if (reader.GetValue(3) != null && Convert.ToString(reader.GetValue(3)) != "")
                     item.endtime = reader.GetString(3);
+
+                if (reader.GetValue(4) != null && Convert.ToString(reader.GetValue(4)) != "")
+                    item.soft_name = reader.GetString(4);
+
+                if (reader.GetValue(5) != null && Convert.ToString(reader.GetValue(5)) != "")
+                    item.denglushijian = reader.GetString(5);
+
+                if (reader.GetValue(6) != null && Convert.ToString(reader.GetValue(6)) != "")
+                    item.password = reader.GetString(6);
+
+                if (reader.GetValue(7) != null && Convert.ToString(reader.GetValue(7)) != "")
+                    item.pid = reader.GetString(7);
+
+                if (reader.GetValue(8) != null && Convert.ToString(reader.GetValue(8)) != "")
+                    item.mark1 = reader.GetString(8);
+
+                if (reader.GetValue(9) != null && Convert.ToString(reader.GetValue(9)) != "")
+                    item.mark2 = reader.GetString(9);
+
+                if (reader.GetValue(10) != null && Convert.ToString(reader.GetValue(10)) != "")
+                    item.mark3 = reader.GetString(10);
+
+                if (reader.GetValue(11) != null && Convert.ToString(reader.GetValue(11)) != "")
+                    item.mark4 = reader.GetString(11);
+
+                if (reader.GetValue(12) != null && Convert.ToString(reader.GetValue(12)) != "")
+                    item.mark5 = reader.GetString(12);
 
                 ClaimReport_Server.Add(item);
 

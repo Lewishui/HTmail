@@ -68,7 +68,7 @@ namespace HTmail
         void timer1_Tick(object sender, EventArgs e)
         {
             //滚动显示
-            if (alter_Server.Count > 0 )
+            if (alter_Server.Count > 0)
             {
                 index = (index + 1) % alter_Server.Count;
                 //toolStripLabel9.Text = messages[index];
@@ -224,7 +224,8 @@ namespace HTmail
             {
                 clsmytest buiness = new clsmytest();
 
-                bool istue = buiness.checkname();
+                bool istue = buiness.checkname(this.txtSAPUserId.Text.Trim(), this.txtSAPPassword.Text.Trim());
+                List<softTime_info> list_Server = buiness.list_Server;
 
                 if (istue == true)
                 {
@@ -237,6 +238,20 @@ namespace HTmail
 
 
                     userlist_Server.Add(item);
+                    if (list_Server[0].pid == null || list_Server[0].pid == "")
+                    {
+                        item.pid = BusinessHelp.PCid;
+
+                    }
+                    else
+                    {
+                        if (list_Server[0].pid != BusinessHelp.PCid)
+                        {
+                            MessageBox.Show("登录失败,一个账号只能在一台电脑使用不可以出售或转让其他人使用\r\n超出使用权限，如特殊情况请联系管理员\r\n", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            return;
+                        }
+                    }
 
                     BusinessHelp.updateLoginTime_Server(userlist_Server);
                     #endregion

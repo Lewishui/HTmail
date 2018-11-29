@@ -23,6 +23,8 @@ namespace HT.DB
         public string Createdate { get; set; }
         public string AdminIS { get; set; }
         public string jigoudaima { get; set; }
+        public string pid { get; set; }
+
     }
     public class Addconnect_info
     {
@@ -116,6 +118,17 @@ namespace HT.DB
         public string starttime { get; set; }//玩法种类
         public string name { get; set; }//玩法种类
         public string endtime { get; set; }//玩法种类
+        public string soft_name { get; set; }//玩法种类
+        public string denglushijian { get; set; }//玩法种类
+      
+
+        public string password { get; set; }//玩法种类
+        public string pid { get; set; }//玩法种类
+        public string mark1 { get; set; }//玩法种类
+        public string mark2 { get; set; }//玩法种类
+        public string mark3 { get; set; }//玩法种类
+        public string mark4 { get; set; }//玩法种类
+        public string mark5 { get; set; }//玩法种类
     }
     public class clsQQquninfo
     {

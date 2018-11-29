@@ -68,7 +68,7 @@ namespace clsBuiness
         bool loading;
         private string dataSource = "H.sqlite";
         string newsth;
-        string PCid;
+      public  string PCid;
  
         public clsAllnew()
         {
@@ -1246,6 +1246,13 @@ namespace clsBuiness
         public void updateLoginTime_Server(List<clsuserinfo> AddMAPResult)
         {
             string sql = "update control_soft_time set denglushijian ='" + AddMAPResult[0].denglushijian.Trim() + "' where name ='" + AddMAPResult[0].name + "'";
+            if (AddMAPResult[0].pid != null && AddMAPResult[0].pid != "")
+            {
+
+                sql = "update control_soft_time set denglushijian ='" + AddMAPResult[0].denglushijian.Trim() + "' ,pid ='" + AddMAPResult[0].pid + "' where name ='" + AddMAPResult[0].name + "'";
+         
+            }
+            
             int isrun = MySqlHelper.ExecuteSql2(sql,2);
           //  int isrun = SQLiteHelper.ExecuteNonQuery(SQLiteHelper.CONNECTION_STRING_BASE, sql, CommandType.Text, null);
           

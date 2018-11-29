@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject>HTmail</subject>
+		<subject></subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -339,21 +339,26 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>HT.DB.dll</td><td>{FAF19643-CC1B-4CB1-AF51-4F986A4FCE3C}</td><td>INSTALLDIR</td><td>2</td><td/><td>ht.db.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>HTmail.exe</td><td>{9D5466E6-DD8E-42ED-A67D-6026B7761AAD}</td><td>INSTALLDIR</td><td>2</td><td/><td>htmail.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>HTmail.vshost.exe</td><td>{2E448F55-0EB1-46B7-9EEB-6E55BAC35B59}</td><td>INSTALLDIR</td><td>2</td><td/><td>htmail.vshost.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>HT.DB.dll</td><td>{C62E3844-F725-451E-B9CB-8688826635A8}</td><td>INSTALLDIR</td><td>2</td><td/><td>ht.db.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>HTmail.exe</td><td>{BFF9B824-35FB-4A08-8D52-D87913D3B6F7}</td><td>INSTALLDIR</td><td>2</td><td/><td>htmail.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>HTmail.vshost.exe</td><td>{7367C91E-8FDD-4E14-83CC-FB2B02BDB57E}</td><td>INSTALLDIR</td><td>2</td><td/><td>htmail.vshost.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{8D4B9B1F-B0DE-41B7-B8CD-A175EA694921}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{4D005952-3E50-4BA2-B105-ADDE3B552D68}</td><td>SYSTEM</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{BDA29EF8-FE31-4016-BA6E-816D9A636E9E}</td><td>MAIL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>MySql.Data.dll</td><td>{26C148A7-4B52-4A01-8078-96AC02D00ED1}</td><td>INSTALLDIR</td><td>2</td><td/><td>mysql.data.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{76F20615-828F-4C91-9C92-2F9529818F35}</td><td>SYSTEM</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{A4824DA8-381A-4B5D-A1C9-B5454216ABA6}</td><td>MAIL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{5DDF8115-2861-4ABB-BB9C-7A206DA72CAF}</td><td>QQ</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{8756B009-2A57-4750-ABCD-BEBE71621811}</td><td>TEL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>IrisSkin2.dll</td><td>{883C6B52-1FC9-4FFF-A73F-679FE8E7F98E}</td><td>INSTALLDIR</td><td>2</td><td/><td>irisskin2.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>MySql.Data.dll</td><td>{528E9A7E-8B8E-4735-873F-C71414791D5E}</td><td>INSTALLDIR</td><td>2</td><td/><td>mysql.data.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NewComponent1</td><td>{4F9A7520-AA1D-4E1B-84F8-763BA2A084B9}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Order.Common.dll</td><td>{28A80F29-D0EA-47F3-8D38-26EFE0AC73B1}</td><td>INSTALLDIR</td><td>2</td><td/><td>order.common.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>System.Data.SQLite.dll</td><td>{E9AF9C42-8AF5-4F79-9F42-1894DB969B45}</td><td>INSTALLDIR</td><td>2</td><td/><td>system.data.sqlite.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>catch_XL.exe</td><td>{E8BE7AB7-C650-4C97-9992-4F13C43DCCA8}</td><td>INSTALLDIR</td><td>2</td><td/><td>catch_xl.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>clsBuiness.dll</td><td>{AE79D3E0-3659-4135-80B0-F1C03012F332}</td><td>INSTALLDIR</td><td>2</td><td/><td>clsbuiness.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>log4net.dll</td><td>{FA56A2DC-22CD-4F5C-B34E-1AAB2608AF04}</td><td>INSTALLDIR</td><td>2</td><td/><td>log4net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>stop_Q.exe</td><td>{295C459D-0734-46A7-B4A0-DC45824E5FC1}</td><td>INSTALLDIR</td><td>2</td><td/><td>stop_q.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>stop_Q___sou.exe</td><td>{FEF7D0D8-C5A1-4015-823C-387203AA21BB}</td><td>INSTALLDIR</td><td>2</td><td/><td>stop_q___sou.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Order.Common.dll</td><td>{E1EBBA7C-77CC-43C0-BB19-425DACA1128C}</td><td>INSTALLDIR</td><td>2</td><td/><td>order.common.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Sendinfo.exe</td><td>{6FD994A5-6D5D-4A48-9529-74B51E874BFF}</td><td>INSTALLDIR</td><td>2</td><td/><td>sendinfo.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>System.Data.SQLite.dll</td><td>{3617B784-C6ED-404A-8897-4090652C3EC7}</td><td>INSTALLDIR</td><td>2</td><td/><td>system.data.sqlite.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>WeifenLuo.WinFormsUI.Docking.dll</td><td>{F93C1C15-440E-4C68-B329-9244F8133906}</td><td>INSTALLDIR</td><td>2</td><td/><td>weifenluo.winformsui.docking</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>catch_XL.exe</td><td>{46B971CB-9515-4AF0-88C5-A50DEF068F1B}</td><td>INSTALLDIR</td><td>2</td><td/><td>catch_xl.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>clsBuiness.dll</td><td>{9785622D-C2C2-4020-AABC-CBB47CAB04D0}</td><td>INSTALLDIR</td><td>2</td><td/><td>clsbuiness.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>log4net.dll</td><td>{2EB1D60F-5DE8-4F78-8E11-B570EE2A5620}</td><td>INSTALLDIR</td><td>2</td><td/><td>log4net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>stop_Q.exe</td><td>{CAF2F74C-A3BD-487E-A16A-1C67DDFCA311}</td><td>INSTALLDIR</td><td>2</td><td/><td>stop_q.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>stop_Q___sou.exe</td><td>{193D8292-A25E-499B-85E2-7C304DD38B03}</td><td>INSTALLDIR</td><td>2</td><td/><td>stop_q___sou.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1147,6 +1152,7 @@
 		<row><td>CommonAppDataFolder</td><td>TARGETDIR</td><td>.:Common~1|CommonAppData</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>DIRECTORY</td><td>HTMAIL1</td><td>云合未来计算~1|云合未来计算机技术有限公司</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
@@ -1154,7 +1160,7 @@
 		<row><td>HTMAIL</td><td>YH</td><td>HTmail</td><td/><td>0</td><td/></row>
 		<row><td>HTMAIL1</td><td>ProgramFilesFolder</td><td>HTmail</td><td/><td>0</td><td/></row>
 		<row><td>HTMAIL2</td><td>HTMAIL1</td><td>HTmail</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>HTMAIL2</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>DIRECTORY</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -1170,6 +1176,7 @@
 		<row><td>PrintHoodFolder</td><td>TARGETDIR</td><td>.:PRINTH~1|PrintHood</td><td/><td>0</td><td/></row>
 		<row><td>ProgramFilesFolder</td><td>TARGETDIR</td><td>.:PROGRA~1|program files</td><td/><td>0</td><td/></row>
 		<row><td>ProgramMenuFolder</td><td>TARGETDIR</td><td>.:Programs</td><td/><td>3</td><td/></row>
+		<row><td>QQ</td><td>SYSTEM</td><td>QQ</td><td/><td>0</td><td/></row>
 		<row><td>RecentFolder</td><td>TARGETDIR</td><td>.:Recent</td><td/><td>0</td><td/></row>
 		<row><td>SYSTEM</td><td>INSTALLDIR</td><td>System</td><td/><td>0</td><td/></row>
 		<row><td>SendToFolder</td><td>TARGETDIR</td><td>.:SendTo</td><td/><td>3</td><td/></row>
@@ -1178,6 +1185,7 @@
 		<row><td>System16Folder</td><td>TARGETDIR</td><td>.:System</td><td/><td>0</td><td/></row>
 		<row><td>SystemFolder</td><td>TARGETDIR</td><td>.:System32</td><td/><td>0</td><td/></row>
 		<row><td>TARGETDIR</td><td/><td>SourceDir</td><td/><td>0</td><td/></row>
+		<row><td>TEL</td><td>SYSTEM</td><td>Tel</td><td/><td>0</td><td/></row>
 		<row><td>TempFolder</td><td>TARGETDIR</td><td>.:Temp</td><td/><td>0</td><td/></row>
 		<row><td>TemplateFolder</td><td>TARGETDIR</td><td>.:ShellNew</td><td/><td>0</td><td/></row>
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
@@ -1883,10 +1891,15 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>AlwaysInstall</td><td>IrisSkin2.dll</td></row>
 		<row><td>AlwaysInstall</td><td>MySql.Data.dll</td></row>
 		<row><td>AlwaysInstall</td><td>NewComponent1</td></row>
 		<row><td>AlwaysInstall</td><td>Order.Common.dll</td></row>
+		<row><td>AlwaysInstall</td><td>Sendinfo.exe</td></row>
 		<row><td>AlwaysInstall</td><td>System.Data.SQLite.dll</td></row>
+		<row><td>AlwaysInstall</td><td>WeifenLuo.WinFormsUI.Docking.dll</td></row>
 		<row><td>AlwaysInstall</td><td>catch_XL.exe</td></row>
 		<row><td>AlwaysInstall</td><td>clsBuiness.dll</td></row>
 		<row><td>AlwaysInstall</td><td>log4net.dll</td></row>
@@ -1906,38 +1919,47 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>acc.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>acc.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\acc.txt</td><td>1</td><td/></row>
-		<row><td>body.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>body.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\body.txt</td><td>1</td><td/></row>
-		<row><td>catch_xl.exe</td><td>catch_XL.exe</td><td>CATCHX~1.EXE|catch XL.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\catch XL.exe</td><td>1</td><td/></row>
-		<row><td>ccto.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>ccto.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\ccto.txt</td><td>1</td><td/></row>
-		<row><td>clsbuiness.dll</td><td>clsBuiness.dll</td><td>CLSBUI~1.DLL|clsBuiness.dll</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\clsBuiness.dll</td><td>1</td><td/></row>
-		<row><td>clsbuiness.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>CLSBUI~1.PDB|clsBuiness.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\clsBuiness.pdb</td><td>1</td><td/></row>
-		<row><td>confing.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>confing.xls</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\confing.xls</td><td>1</td><td/></row>
-		<row><td>fromto.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>fromto.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\fromto.txt</td><td>1</td><td/></row>
-		<row><td>h.sqlite</td><td>ISX_DEFAULTCOMPONENT</td><td>HDC55~1.SQL|H.sqlite</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\H.sqlite</td><td>1</td><td/></row>
-		<row><td>ht.db.dll</td><td>HT.DB.dll</td><td>HTDB~1.DLL|HT.DB.dll</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HT.DB.dll</td><td>1</td><td/></row>
-		<row><td>ht.db.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>HTDB~1.PDB|HT.DB.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HT.DB.pdb</td><td>1</td><td/></row>
-		<row><td>htmail.exe</td><td>HTmail.exe</td><td>HTmail.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>1</td><td/></row>
-		<row><td>htmail.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>HTMAIL~1.CON|HTmail.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe.config</td><td>1</td><td/></row>
-		<row><td>htmail.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>HTmail.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.pdb</td><td>1</td><td/></row>
-		<row><td>htmail.vshost.exe</td><td>HTmail.vshost.exe</td><td>HTMAIL~1.EXE|HTmail.vshost.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.vshost.exe</td><td>1</td><td/></row>
-		<row><td>htmail.vshost.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>HTMAIL~1.CON|HTmail.vshost.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.vshost.exe.config</td><td>1</td><td/></row>
-		<row><td>ip.txt</td><td>ISX_DEFAULTCOMPONENT1</td><td>IP.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\IP.txt</td><td>1</td><td/></row>
-		<row><td>log4net.dll</td><td>log4net.dll</td><td>log4net.dll</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\log4net.dll</td><td>1</td><td/></row>
-		<row><td>mysql.data.dll</td><td>MySql.Data.dll</td><td>MYSQLD~1.DLL|MySql.Data.dll</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\MySql.Data.dll</td><td>1</td><td/></row>
-		<row><td>order.common.dll</td><td>Order.Common.dll</td><td>ORDERC~1.DLL|Order.Common.dll</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\Order.Common.dll</td><td>1</td><td/></row>
-		<row><td>order.common.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>ORDERC~1.PDB|Order.Common.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\Order.Common.pdb</td><td>1</td><td/></row>
-		<row><td>password.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>password.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\password.txt</td><td>1</td><td/></row>
-		<row><td>sendto.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>sendto.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\sendto.txt</td><td>1</td><td/></row>
-		<row><td>stop_q.exe</td><td>stop_Q.exe</td><td>STOPQ~1.EXE|stop Q.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\stop Q.exe</td><td>1</td><td/></row>
-		<row><td>stop_q___sou.exe</td><td>stop_Q___sou.exe</td><td>STOPQ-~1.EXE|stop Q - sou.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\stop Q - sou.exe</td><td>1</td><td/></row>
-		<row><td>subject.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>subject.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\subject.txt</td><td>1</td><td/></row>
-		<row><td>system.data.sqlite.dll</td><td>System.Data.SQLite.dll</td><td>SYSTEM~1.DLL|System.Data.SQLite.dll</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System.Data.SQLite.dll</td><td>1</td><td/></row>
-		<row><td>system.data.sqlite.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>SYSTEM~1.XML|System.Data.SQLite.xml</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System.Data.SQLite.xml</td><td>1</td><td/></row>
-		<row><td>uploadfrom.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>UPLOAD~1.XLS|UploadFrom.xls</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\UploadFrom.xls</td><td>1</td><td/></row>
-		<row><td>uploadsend.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>UPLOAD~1.XLS|UploadSend.xls</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\UploadSend.xls</td><td>1</td><td/></row>
-		<row><td>uploadtemplate.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>UPLOAD~1.XLS|UploadTemplate.xls</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\UploadTemplate.xls</td><td>1</td><td/></row>
-		<row><td>username.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>username.txt</td><td>0</td><td/><td/><td/><td>1</td><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\System\mail\username.txt</td><td>1</td><td/></row>
+		<row><td>acc.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>acc.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\acc.txt</td><td>1</td><td/></row>
+		<row><td>body.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>body.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\body.txt</td><td>1</td><td/></row>
+		<row><td>body.txt1</td><td>ISX_DEFAULTCOMPONENT3</td><td>body.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\QQ\body.txt</td><td>1</td><td/></row>
+		<row><td>catch_xl.exe</td><td>catch_XL.exe</td><td>CATCHX~1.EXE|catch XL.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\catch XL.exe</td><td>1</td><td/></row>
+		<row><td>ccto.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>ccto.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\ccto.txt</td><td>1</td><td/></row>
+		<row><td>clsbuiness.dll</td><td>clsBuiness.dll</td><td>CLSBUI~1.DLL|clsBuiness.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\clsBuiness.dll</td><td>1</td><td/></row>
+		<row><td>clsbuiness.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>CLSBUI~1.PDB|clsBuiness.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\clsBuiness.pdb</td><td>1</td><td/></row>
+		<row><td>confing.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>confing.xls</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\confing.xls</td><td>1</td><td/></row>
+		<row><td>fromto.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>fromto.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\fromto.txt</td><td>1</td><td/></row>
+		<row><td>h.sqlite</td><td>ISX_DEFAULTCOMPONENT</td><td>HDC55~1.SQL|H.sqlite</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\H.sqlite</td><td>1</td><td/></row>
+		<row><td>ht.db.dll</td><td>HT.DB.dll</td><td>HTDB~1.DLL|HT.DB.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HT.DB.dll</td><td>1</td><td/></row>
+		<row><td>ht.db.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>HTDB~1.PDB|HT.DB.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HT.DB.pdb</td><td>1</td><td/></row>
+		<row><td>htmail.exe</td><td>HTmail.exe</td><td>HTmail.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>1</td><td/></row>
+		<row><td>htmail.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>HTMAIL~1.CON|HTmail.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.exe.config</td><td>1</td><td/></row>
+		<row><td>htmail.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>HTmail.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.pdb</td><td>1</td><td/></row>
+		<row><td>htmail.vshost.exe</td><td>HTmail.vshost.exe</td><td>HTMAIL~1.EXE|HTmail.vshost.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.vshost.exe</td><td>1</td><td/></row>
+		<row><td>htmail.vshost.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>HTMAIL~1.CON|HTmail.vshost.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.vshost.exe.config</td><td>1</td><td/></row>
+		<row><td>htmail.vshost.exe.manifest</td><td>ISX_DEFAULTCOMPONENT</td><td>HTMAIL~1.MAN|HTmail.vshost.exe.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.vshost.exe.manifest</td><td>1</td><td/></row>
+		<row><td>ip.txt</td><td>ISX_DEFAULTCOMPONENT1</td><td>IP.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\IP.txt</td><td>1</td><td/></row>
+		<row><td>irisskin2.dll</td><td>IrisSkin2.dll</td><td>IRISSK~1.DLL|IrisSkin2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\IrisSkin2.dll</td><td>1</td><td/></row>
+		<row><td>log4net.dll</td><td>log4net.dll</td><td>log4net.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\log4net.dll</td><td>1</td><td/></row>
+		<row><td>mysql.data.dll</td><td>MySql.Data.dll</td><td>MYSQLD~1.DLL|MySql.Data.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\MySql.Data.dll</td><td>1</td><td/></row>
+		<row><td>order.common.dll</td><td>Order.Common.dll</td><td>ORDERC~1.DLL|Order.Common.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\Order.Common.dll</td><td>1</td><td/></row>
+		<row><td>order.common.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>ORDERC~1.PDB|Order.Common.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\Order.Common.pdb</td><td>1</td><td/></row>
+		<row><td>password.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>password.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\password.txt</td><td>1</td><td/></row>
+		<row><td>sendinfo.exe</td><td>Sendinfo.exe</td><td>Sendinfo.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\Sendinfo.exe</td><td>1</td><td/></row>
+		<row><td>sendto.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>sendto.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\sendto.txt</td><td>1</td><td/></row>
+		<row><td>sendto.txt1</td><td>ISX_DEFAULTCOMPONENT3</td><td>sendto.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\QQ\sendto.txt</td><td>1</td><td/></row>
+		<row><td>stop_q.exe</td><td>stop_Q.exe</td><td>STOPQ~1.EXE|stop Q.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\stop Q.exe</td><td>1</td><td/></row>
+		<row><td>stop_q___sou.exe</td><td>stop_Q___sou.exe</td><td>STOPQ-~1.EXE|stop Q - sou.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\stop Q - sou.exe</td><td>1</td><td/></row>
+		<row><td>subject.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>subject.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\subject.txt</td><td>1</td><td/></row>
+		<row><td>system.data.sqlite.dll</td><td>System.Data.SQLite.dll</td><td>SYSTEM~1.DLL|System.Data.SQLite.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System.Data.SQLite.dll</td><td>1</td><td/></row>
+		<row><td>system.data.sqlite.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>SYSTEM~1.XML|System.Data.SQLite.xml</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System.Data.SQLite.xml</td><td>1</td><td/></row>
+		<row><td>tel.txt</td><td>ISX_DEFAULTCOMPONENT4</td><td>Tel.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\Tel\Tel.txt</td><td>1</td><td/></row>
+		<row><td>tel.txt1</td><td>ISX_DEFAULTCOMPONENT1</td><td>Tel.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\Tel.txt</td><td>1</td><td/></row>
+		<row><td>tel1.txt</td><td>ISX_DEFAULTCOMPONENT4</td><td>Tel1.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\Tel\Tel1.txt</td><td>1</td><td/></row>
+		<row><td>uploadfrom.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>UPLOAD~1.XLS|UploadFrom.xls</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\UploadFrom.xls</td><td>1</td><td/></row>
+		<row><td>uploadsend.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>UPLOAD~1.XLS|UploadSend.xls</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\UploadSend.xls</td><td>1</td><td/></row>
+		<row><td>uploadtemplate.xls</td><td>ISX_DEFAULTCOMPONENT1</td><td>UPLOAD~1.XLS|UploadTemplate.xls</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\UploadTemplate.xls</td><td>1</td><td/></row>
+		<row><td>username.txt</td><td>ISX_DEFAULTCOMPONENT2</td><td>username.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\System\mail\username.txt</td><td>1</td><td/></row>
+		<row><td>weifenluo.winformsui.docking</td><td>WeifenLuo.WinFormsUI.Docking.dll</td><td>WEIFEN~1.DLL|WeifenLuo.WinFormsUI.Docking.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2193,21 +2215,26 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>HT.DB.dll</td><td/><td/><td>_D4235713_9CB7_4BDD_8385_ED52657A5B60_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>HTmail.exe</td><td/><td/><td>_8D23B9EE_3F3E_48CC_87D7_7240B693C96F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>HTmail.vshost.exe</td><td/><td/><td>_7C0369B6_6A14_4254_98FB_A7F1A350F453_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>HT.DB.dll</td><td/><td/><td>_5B7D8698_74D3_48AF_B671_54E5E3D1E02D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>HTmail.exe</td><td/><td/><td>_E409EAC2_42B3_451C_B482_D04E7ABB2732_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>HTmail.vshost.exe</td><td/><td/><td>_3073D556_5158_473B_A297_D084EDF12103_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_7B404A62_E883_45AA_A40C_69C30530B77D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_DC5FFCF2_7925_4CB1_8D11_09CA31DA1BD0_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_670AD11E_ED69_4D5F_803E_5A565452574F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>MySql.Data.dll</td><td/><td/><td>_5A0FA11F_D5C8_446A_A961_74EA844F914A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_18DD02B1_F65C_4365_B149_F6A9D95D2ECE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_5936585B_A689_4FB3_B513_F4B3420B6607_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_8BC6470B_C17A_4DB9_881C_DB47591381DD_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_76D3C374_43A0_4ECE_9649_A9EAC12970B5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>IrisSkin2.dll</td><td/><td/><td>_A0D58A26_43D1_4E39_8A8F_6EFDA4D48126_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>MySql.Data.dll</td><td/><td/><td>_87AB2F8B_98B7_4895_98C5_42109DE2B629_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NewComponent1</td><td/><td/><td>_2BD03C2E_E475_41B5_8F46_D606FBF3FAB4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Order.Common.dll</td><td/><td/><td>_6C9107AD_4C15_4697_850E_4C9C63BCA213_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>System.Data.SQLite.dll</td><td/><td/><td>_37B98948_DC3B_4FF0_BE9D_9D73CD778DE5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>catch_XL.exe</td><td/><td/><td>_A4614734_4129_4449_9D23_0703C0566CF5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>clsBuiness.dll</td><td/><td/><td>_22FA65CC_4D46_4C9C_84AD_8B374159C332_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>log4net.dll</td><td/><td/><td>_3AE94044_A878_4F4B_BA03_30D071901B77_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>stop_Q.exe</td><td/><td/><td>_597C0519_BDC5_478B_9E02_299F6F3EE72F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>stop_Q___sou.exe</td><td/><td/><td>_BEFAC18F_28BF_48E0_B527_FE5B8E6111F6_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Order.Common.dll</td><td/><td/><td>_EE14AD45_B118_4EBB_A8F1_6586859DE413_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Sendinfo.exe</td><td/><td/><td>_A57252D1_67B4_457E_8743_8B6970592816_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>System.Data.SQLite.dll</td><td/><td/><td>_B1C656B4_1F3D_4C5D_8645_33BCC5D0067D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>WeifenLuo.WinFormsUI.Docking.dll</td><td/><td/><td>_B21E4BBD_EA91_49F1_B246_5F151ABCE395_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>catch_XL.exe</td><td/><td/><td>_C65EA814_BC8C_47DD_8EE2_5D0A0F1B2742_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>clsBuiness.dll</td><td/><td/><td>_210F0839_8269_4FB9_A497_D91C7329AAF2_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>log4net.dll</td><td/><td/><td>_E230DAA3_ED9B_4763_852E_653EDDADFB76_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>stop_Q.exe</td><td/><td/><td>_9A9E0257_3C7B_48A1_AE20_D180A9B67E57_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>stop_Q___sou.exe</td><td/><td/><td>_07894106_8F6E_4FCB_A0C4_F0B699935251_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3652,6 +3679,18 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>2052</td><td>LAUNCH~1.EXE|Launch catch XL.exe</td><td>0</td><td/><td>1160157462</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>1033</td><td/><td>0</td><td/><td>1160141590</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>2052</td><td>LAUNCH~1.EXE|Launch stop Q.exe</td><td>0</td><td/><td>1160141590</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME11</td><td>1033</td><td/><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME11</td><td>2052</td><td>LAUNCH~1.EXE|Launch catch XL.exe</td><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME12</td><td>1033</td><td/><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME12</td><td>2052</td><td>HTmail.exe</td><td>0</td><td/><td>-307883861</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME13</td><td>1033</td><td/><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME13</td><td>2052</td><td>LAUNCH~1.EXE|Launch HTmail.vshost.exe</td><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME14</td><td>1033</td><td/><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME14</td><td>2052</td><td>LAUNCH~1.EXE|Launch Sendinfo.exe</td><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME15</td><td>1033</td><td/><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME15</td><td>2052</td><td>LAUNCH~1.EXE|Launch stop Q - sou.exe</td><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME16</td><td>1033</td><td/><td>0</td><td/><td>-307886005</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME16</td><td>2052</td><td>LAUNCH~1.EXE|Launch stop Q.exe</td><td>0</td><td/><td>-307886005</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td/><td>0</td><td/><td>1160157462</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>2052</td><td>HTmail.exe</td><td>0</td><td/><td>1160177974</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td/><td>0</td><td/><td>1160157462</td></row>
@@ -3962,6 +4001,8 @@
 		<row><td>ID_STRING3</td><td>2052</td><td>HTmail.exe</td><td>0</td><td/><td>1160177974</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>LAUNCH~1.EXE|Launch HTmail.exe</td><td>0</td><td/><td>1160166518</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>LAUNCH~1.EXE|Launch HTmail.exe</td><td>0</td><td/><td>1160166518</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>HTmail.exe</td><td>0</td><td/><td>-307860437</td></row>
+		<row><td>ID_STRING5</td><td>2052</td><td>HTmail.exe</td><td>0</td><td/><td>-307860437</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>2052</td><td>系统将不安装此功能。</td><td>0</td><td/><td>1160177878</td></row>
 	</table>
 
@@ -4071,9 +4112,11 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
 		<row><td>HTmail.exe1_21886EBFB00F4B419A8000B4D2B1781F.exe</td><td/><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>0</td></row>
+		<row><td>HTmail.exe1_3C0346C310BD4BF9856CF78D241FD55F.exe</td><td/><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>0</td></row>
 		<row><td>HTmail.exe1_BC3E3B136F344B188B2FB3BCBD9E9CBB.exe</td><td/><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>0</td></row>
 		<row><td>HTmail.exe_04F6E4F14326453DB6F0B90B976D85C3.exe</td><td/><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>0</td></row>
 		<row><td>HTmail.exe_331D30CF5F33453FACD92E9F11FCD49E.exe</td><td/><td>F:\mysteap\Devpro\HTTPmail\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>0</td></row>
+		<row><td>HTmail.exe_AA91D2595A82446790240E087F41F653.exe</td><td/><td>D:\Devlop\自动化工具\HTmail\HTmail\bin\Debug\HTmail.exe</td><td>0</td></row>
 		<row><td>HTmail.vshost.exe_F34E336D0A8C4CA49D89B03A34CB8132.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>UNINST_Uninstall_H_7618669B390344E3919FC5EE88AA455B.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2012SpringLE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 	</table>
@@ -4581,7 +4624,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{207FF12D-202F-43CD-BE76-6543EA895106}</td><td/></row>
-		<row><td>ProductName</td><td>HTmail</td><td/></row>
+		<row><td>ProductName</td><td>云合未来计算机技术有限公司</td><td/></row>
 		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
@@ -4744,8 +4787,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>HTmail.exe</td><td>htmail1</td><td>##IDS_SHORTCUT_DISPLAY_NAME7##</td><td>HTmail.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>HTmail.exe_04F6E4F14326453DB6F0B90B976D85C3.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>HTmail.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME7##</td><td>HTmail.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>HTmail.exe1_BC3E3B136F344B188B2FB3BCBD9E9CBB.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>HTmail.exe</td><td>htmail1</td><td>##IDS_SHORTCUT_DISPLAY_NAME12##</td><td>HTmail.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>HTmail.exe_AA91D2595A82446790240E087F41F653.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>HTmail.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME12##</td><td>HTmail.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>HTmail.exe1_3C0346C310BD4BF9856CF78D241FD55F.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>UNINST_Uninstall_HTmail</td><td>htmail1</td><td>UNINST|Uninstall HTmail</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {207FF12D-202F-43CD-BE76-6543EA895106}</td><td/><td/><td>UNINST_Uninstall_H_7618669B390344E3919FC5EE88AA455B.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
