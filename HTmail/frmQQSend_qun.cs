@@ -38,6 +38,7 @@ namespace HTmail
         int comboxi;
         string comboxiname;
         clsAllnew BusinessHelp;
+        bool ischeck = false;
 
         private void TimeControl(object sender, EventArgs e)
         {
@@ -62,7 +63,7 @@ namespace HTmail
             bool istrue = true;
             int dddindex = 1;
             if (listView1.Items.Count > 0)
-            { 
+            {
                 //foreach (ListViewItem item in listView1.Items)
                 //{
                 //    if (item.SubItems[2].Text == "是")
@@ -151,7 +152,7 @@ namespace HTmail
 
             }
             InitializeDataSource();
-        
+
         }
         private void InitialBackGroundWorker()
         {
@@ -420,16 +421,31 @@ namespace HTmail
 
         private void 删除本条ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //var oids = GetOrderIdsBySelectedGridCell();
-            BusinessHelp.deleteQQqun(OrderQUNlist_Server[comboxi].Order_id);
+            ////var oids = GetOrderIdsBySelectedGridCell();
+            //BusinessHelp.deleteQQqun(OrderQUNlist_Server[comboxi].Order_id);
 
-            OrderQUNlist_Server.RemoveAt(comboxi);
+            //OrderQUNlist_Server.RemoveAt(comboxi);
 
-            // filename.RemoveAt(comboxi);
-            listView1.Items.RemoveAt(comboxi);
+            //// filename.RemoveAt(comboxi);
+            //listView1.Items.RemoveAt(comboxi);
+            //listView1.Items.Clear();
+
+            for (int j = 0; j < listView1.Items.Count; j++)
+            {
+                if (listView1.Items[j].Checked == true)
+                {
+                    BusinessHelp.deleteQQqun(OrderQUNlist_Server[j].Order_id);
+
+                   // OrderQUNlist_Server.RemoveAt(j);
+
+                    // filename.RemoveAt(comboxi);
+                  //  listView1.Items.RemoveAt(j);
+               
+
+                }
+
+            }
             listView1.Items.Clear();
-
-
             InitializeDataSource();
 
 
@@ -441,7 +457,7 @@ namespace HTmail
 
             OrderQUNlist_Server = BusinessHelp.findQQqun(strSelect);
             this.listView1.Items.Clear();
-          
+
             int Index = 1;
             foreach (clsQQquninfo item in OrderQUNlist_Server)
             {
@@ -510,7 +526,34 @@ namespace HTmail
 
             }
 
-            
+
+        }
+
+        private void 全选ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                if (ischeck == false)
+                {
+                    for (int j = 0; j < listView1.Items.Count; j++)
+                    {
+
+                        listView1.Items[j].Checked = true;
+                        ischeck = true;
+
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < listView1.Items.Count; j++)
+                    {
+
+                        listView1.Items[j].Checked = false;
+                        ischeck = false;
+
+                    }
+                }
+            }
         }
     }
 }

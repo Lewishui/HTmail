@@ -55,6 +55,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.全选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -135,15 +136,16 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除本条ToolStripMenuItem});
+            this.删除本条ToolStripMenuItem,
+            this.全选ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // 删除本条ToolStripMenuItem
             // 
             this.删除本条ToolStripMenuItem.Name = "删除本条ToolStripMenuItem";
-            this.删除本条ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.删除本条ToolStripMenuItem.Text = "删除本条";
+            this.删除本条ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除本条ToolStripMenuItem.Text = "删除选中";
             this.删除本条ToolStripMenuItem.Click += new System.EventHandler(this.删除本条ToolStripMenuItem_Click);
             // 
             // textBox2
@@ -269,6 +271,13 @@
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
+            // 全选ToolStripMenuItem
+            // 
+            this.全选ToolStripMenuItem.Name = "全选ToolStripMenuItem";
+            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.全选ToolStripMenuItem.Text = "全选";
+            this.全选ToolStripMenuItem.Click += new System.EventHandler(this.全选ToolStripMenuItem_Click);
+            // 
             // frmQQSend_qun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -330,5 +339,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ToolStripMenuItem 删除本条ToolStripMenuItem;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripMenuItem 全选ToolStripMenuItem;
     }
 }
