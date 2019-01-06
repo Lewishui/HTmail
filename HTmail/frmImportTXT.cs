@@ -99,6 +99,8 @@ namespace HTmail
                 string[] temp1 = System.Text.RegularExpressions.Regex.Split(fileText[i], " ");
 
                 clsQQquninfo temp = new clsQQquninfo();
+                if (temp1.Length < 2)
+                    continue;
 
                 temp.qun_name = temp1[0];
                 temp.send_body = temp1[1];
@@ -112,6 +114,10 @@ namespace HTmail
 
                     temp.send_time = accrualselecttime;
                 }
+                if (temp1.Length>3)
+                temp.mark1 = temp1[3];//代表 没有图片发送
+               else
+                    temp.mark1 = "否";
 
                 addOrderQUNlist_Server.Add(temp);
                 int isok = BusinessHelp.create_QQqun_Server(addOrderQUNlist_Server);

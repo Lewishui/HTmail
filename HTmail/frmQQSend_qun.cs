@@ -129,6 +129,7 @@ namespace HTmail
             li.SubItems.Add(textBox3.Text);
             li.SubItems.Add(comboBox1.Text);
             li.SubItems.Add(accrualselecttime);
+            li.SubItems.Add(comboBox2.Text);
             listView1.Items.Add(li);
             List<clsQQquninfo> addOrderQUNlist_Server = new List<clsQQquninfo>();
 
@@ -138,6 +139,7 @@ namespace HTmail
             temp.send_body = textBox3.Text;
             temp.is_timer = comboBox1.Text;
             temp.send_time = accrualselecttime;
+            temp.mark1 = comboBox1.Text; ;
 
             OrderQUNlist_Server.Add(temp);
             addOrderQUNlist_Server.Add(temp);
@@ -253,7 +255,7 @@ namespace HTmail
                     bgWorker.ReportProgress(0, "发送中   :  " + dddindex.ToString() + "/" + listView1.Items.Count.ToString());
 
                     Thread.Sleep(1000);
-                    if (item.SubItems[2].Text != "是")
+                    if (item.SubItems[2].Text != "是")//是否定时发送
                         istrue = mainSend(istrue, item);
                 }
                 dddindex++;
@@ -264,7 +266,7 @@ namespace HTmail
         {
             //for (int i = 0; i < item.SubItems.Count; i++)
             {
-                moveFolder(item.SubItems[0].Text, item.SubItems[1].Text);
+                moveFolder(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text);
 
                 //遍历所有查找到的进程
                 isOneFinished = false;
@@ -312,7 +314,7 @@ namespace HTmail
             }
 
         }
-        private void wirite_txt(string qunmingcheng, string body)
+        private void wirite_txt(string qunmingcheng, string body,string ISACC)
         {
             string A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\QQ\\sendto.txt";
 
@@ -333,10 +335,20 @@ namespace HTmail
             sw.Flush();
             sw.Close();
 
+            A_Path = AppDomain.CurrentDomain.BaseDirectory + "System\\QQ\\isACC.txt";
+
+            sw = new StreamWriter(A_Path);
+
+            sw.WriteLine(ISACC.Trim());
+
+
+            sw.Flush();
+            sw.Close();
+
         }
-        private void moveFolder(string qunmingcheng, string body)
+        private void moveFolder(string qunmingcheng, string body,string ISPIC)
         {
-            wirite_txt(qunmingcheng, body);
+            wirite_txt(qunmingcheng, body, ISPIC);
             string path = AppDomain.CurrentDomain.BaseDirectory + "System\\QQ";
             string dir = @"C:\Program Files (x86)\HTmail\System\\QQ";
             CopyFolder(path, dir);
@@ -467,6 +479,8 @@ namespace HTmail
                     li.SubItems.Add(item.send_body);
                     li.SubItems.Add(item.is_timer);
                     li.SubItems.Add(item.send_time);
+                    li.SubItems.Add(item.mark1);
+                 
                     listView1.Items.Add(li);
 
                     Index++;
@@ -554,6 +568,11 @@ namespace HTmail
                     }
                 }
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

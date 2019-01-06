@@ -137,6 +137,12 @@
     <Compile Include="frmQQSend_qun.Designer.cs">
       <DependentUpon>frmQQSend_qun.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQQSend_qunchengyuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQQSend_qunchengyuan.Designer.cs">
+      <DependentUpon>frmQQSend_qunchengyuan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReception.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQQSend_qun.resx">
       <DependentUpon>frmQQSend_qun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQQSend_qunchengyuan.resx">
+      <DependentUpon>frmQQSend_qunchengyuan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReception.resx">
       <DependentUpon>frmReception.cs</DependentUpon>

@@ -86,12 +86,13 @@ namespace Order.Common
             try
             {
                 PrepareCommand(cmd, connection, null, sqlString, cmdParms);
-                if (cmd.Connection==null||cmd.Connection.State != ConnectionState.Open)
+                if (cmd.Connection == null || cmd.Connection.State != ConnectionState.Open)
                 {
                     return null;
 
                 }
-                myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                if (connection.State == ConnectionState.Open)
+                    myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 cmd.Parameters.Clear();
                 return myReader;
             }
